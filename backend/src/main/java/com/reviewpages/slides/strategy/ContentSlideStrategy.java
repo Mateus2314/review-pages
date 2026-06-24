@@ -21,16 +21,40 @@ public class ContentSlideStrategy implements SlideStrategy {
         String trimmed = section.trim();
         return !trimmed.isEmpty()
                 && !trimmed.startsWith("---")
-                && !trimmed.startsWith(">")
-                && !trimmed.startsWith("## ")
-                && !trimmed.startsWith("### ");
+                && !trimmed.startsWith(">");
     }
 
     @Override
     public List<SlideDTO> generate(String section, int order) {
         List<SlideDTO> slides = new ArrayList<>();
         String text = section.trim();
+        String slideTitle = "";
         String imageUrl = findImageForContent(text);
+
+        // Extract heading as slide title (## or ### heading on first line)
+        String[] lines = text.split("\n", 2);
+        if (lines.length > 0) {
+            String firstLine = lines[0].trim();
+            if (firstLine.startsWith("## ")) {
+                slideTitle = firstLine.substring(3).trim();
+                // Remove ## from text to avoid duplication in content
+                text = lines.length > 1 ? lines[1].trim() : "";
+            } else if (firstLine.startsWith("### ")) {
+                slideTitle = firstLine.substring(4).trim();
+                text = lines.length > 1 ? lines[1].trim() : "";
+            }
+        }
+
+        if (text.isEmpty()) {
+            // Only a heading, no body content — return a title-like slide
+            slides.add(SlideDTO.builder()
+                    .type("CONTENT")
+                    .title(slideTitle)
+                    .imageUrl(imageUrl)
+                    .order(order)
+                    .build());
+            return slides;
+        }
 
         // Split into chunks if too long
         while (text.length() > MAX_CHARS_PER_SLIDE) {
@@ -41,10 +65,13 @@ public class ContentSlideStrategy implements SlideStrategy {
             String chunk = text.substring(0, splitAt).trim();
             slides.add(SlideDTO.builder()
                     .type("CONTENT")
+                    .title(slideTitle)
                     .content(chunk)
                     .imageUrl(imageUrl)
                     .order(order++)
                     .build());
+            // Only show title on first slide of a section
+            slideTitle = null;
             // Only show image on first slide of the chunk
             imageUrl = null;
             text = text.substring(splitAt).trim();
@@ -53,6 +80,7 @@ public class ContentSlideStrategy implements SlideStrategy {
         if (!text.isEmpty()) {
             slides.add(SlideDTO.builder()
                     .type("CONTENT")
+                    .title(slideTitle)
                     .content(text)
                     .imageUrl(imageUrl)
                     .order(order)

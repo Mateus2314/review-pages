@@ -1,5 +1,5 @@
-import { useState, useEffect, useCallback } from 'react';
-import { ChevronLeft, ChevronRight, Quote, List, FileText, Play, X } from 'lucide-react';
+import { useState, useEffect, useCallback, useRef } from 'react';
+import { ChevronLeft, ChevronRight, Quote, List, FileText, Play, X, Maximize, Minimize } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import type { Slide } from '../types';
@@ -27,6 +27,8 @@ const typeConfig: Record<string, { icon: React.ReactNode; bg: string }> = {
 
 export default function SlideViewer({ slides, onClose }: SlideViewerProps) {
   const [current, setCurrent] = useState(0);
+  const [isFullscreen, setIsFullscreen] = useState(false);
+  const slideRef = useRef<HTMLDivElement>(null);
   const slide = slides[current];
 
   const goNext = useCallback(() => {
@@ -37,15 +39,34 @@ export default function SlideViewer({ slides, onClose }: SlideViewerProps) {
     if (current > 0) setCurrent(c => c - 1);
   }, [current]);
 
+  const toggleFullscreen = useCallback(async () => {
+    if (!document.fullscreenElement) {
+      try {
+        await document.documentElement.requestFullscreen();
+        setIsFullscreen(true);
+      } catch { /* not supported or denied */ }
+    } else {
+      await document.exitFullscreen();
+      setIsFullscreen(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    const handleFsChange = () => setIsFullscreen(!!document.fullscreenElement);
+    document.addEventListener('fullscreenchange', handleFsChange);
+    return () => document.removeEventListener('fullscreenchange', handleFsChange);
+  }, []);
+
   useEffect(() => {
     const handleKey = (e: KeyboardEvent) => {
       if (e.key === 'ArrowRight' || e.key === 'ArrowDown') goNext();
       if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') goPrev();
       if (e.key === 'Escape') onClose?.();
+      if (e.key === 'f' || e.key === 'F') toggleFullscreen();
     };
     window.addEventListener('keydown', handleKey);
     return () => window.removeEventListener('keydown', handleKey);
-  }, [goNext, goPrev, onClose]);
+  }, [goNext, goPrev, onClose, toggleFullscreen]);
 
   if (!slides.length) return null;
 
@@ -53,42 +74,63 @@ export default function SlideViewer({ slides, onClose }: SlideViewerProps) {
   const progress = ((current + 1) / slides.length) * 100;
 
   return (
-    <div className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4 backdrop-blur-sm">
+    <div className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4 backdrop-blur-sm" ref={slideRef}>
       {/* Slide container */}
-      <div className="relative w-full max-w-4xl">
-        {/* Progress bar */}
-        <div className="absolute -top-1 left-0 right-0 h-1 bg-slate-700/50 rounded-full overflow-hidden">
-          <div
-            className="h-full bg-indigo-500 rounded-full transition-all duration-300"
-            style={{ width: `${progress}%` }}
-          />
-        </div>
-
-        {/* Main slide card */}
-        <div className={`relative rounded-2xl shadow-2xl overflow-hidden min-h-[500px] ${config.bg}`}>
+      <div className="relative w-full max-w-5xl">
+        {/* Top bar: progress + controls */}
+        <div className="flex items-center gap-3 mb-4">
+          {/* Progress bar */}
+          <div className="flex-1 h-1 bg-slate-700/50 rounded-full overflow-hidden">
+            <div
+              className="h-full bg-indigo-500 rounded-full transition-all duration-300"
+              style={{ width: `${progress}%` }}
+            />
+          </div>
+          {/* Fullscreen button */}
+          <button
+            onClick={toggleFullscreen}
+            className="p-2 rounded-lg bg-slate-700/40 hover:bg-slate-600/60 text-slate-400 hover:text-white transition-all"
+            title={isFullscreen ? 'Sair da tela cheia (F)' : 'Tela cheia (F)'}
+          >
+            {isFullscreen ? <Minimize className="w-4 h-4" /> : <Maximize className="w-4 h-4" />}
+          </button>
           {/* Close button */}
           {onClose && (
             <button
               onClick={onClose}
-              className="absolute top-4 right-4 p-2 rounded-full bg-black/20 hover:bg-black/40 text-white/70 hover:text-white transition-colors z-10"
+              className="p-2 rounded-lg bg-slate-700/40 hover:bg-slate-600/60 text-slate-400 hover:text-white transition-all"
             >
               <X className="w-5 h-5" />
             </button>
           )}
+        </div>
 
-          {/* Background image overlay for TITLE, QUOTE, CLOSING */}
+        {/* Main slide card */}
+        <div className={`relative rounded-2xl shadow-2xl overflow-hidden min-h-[500px] ${isFullscreen ? 'min-h-[80vh]' : ''} ${config.bg}`}>
+          {/* Background image for dark slides (TITLE, QUOTE, CLOSING) */}
           {imgUrl(slide.imageUrl) && (slide.type === 'TITLE' || slide.type === 'QUOTE' || slide.type === 'CLOSING') && (
             <div className="absolute inset-0 z-0">
               <img
                 src={imgUrl(slide.imageUrl)}
                 alt=""
-                className="w-full h-full object-cover opacity-20"
+                className="w-full h-full object-cover opacity-25"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0F0728]/80 via-transparent to-[#0F0728]/60" />
             </div>
           )}
 
-          {/* Title / Quote slides */}
+          {/* Background image for light slides (CONTENT, KEY_POINTS) */}
+          {imgUrl(slide.imageUrl) && (slide.type === 'CONTENT' || slide.type === 'KEY_POINTS') && (
+            <div className="absolute inset-0 z-0">
+              <img
+                src={imgUrl(slide.imageUrl)}
+                alt=""
+                className="w-full h-full object-cover opacity-10"
+              />
+            </div>
+          )}
+
+          {/* Title slide */}
           {slide.type === 'TITLE' && (
             <div className="relative z-10 flex flex-col items-center justify-center min-h-[500px] px-16 py-20 text-center">
               <span className="text-xs font-semibold text-purple-400 tracking-[0.15em] uppercase mb-6">
@@ -105,6 +147,7 @@ export default function SlideViewer({ slides, onClose }: SlideViewerProps) {
             </div>
           )}
 
+          {/* Quote slide */}
           {slide.type === 'QUOTE' && (
             <div className="relative z-10 flex flex-col items-center justify-center min-h-[500px] px-16 py-20 text-center">
               <Quote className="w-12 h-12 text-indigo-400 mb-6 opacity-60" />
@@ -126,7 +169,7 @@ export default function SlideViewer({ slides, onClose }: SlideViewerProps) {
 
           {/* Content slides */}
           {(slide.type === 'CONTENT' || (slide.type !== 'TITLE' && slide.type !== 'QUOTE' && slide.type !== 'KEY_POINTS' && slide.type !== 'CLOSING')) && (
-            <div className="px-16 py-14">
+            <div className="relative z-10 px-16 py-14">
               {imgUrl(slide.imageUrl) && (
                 <div className="mb-6 rounded-xl overflow-hidden max-h-64">
                   <img src={imgUrl(slide.imageUrl)} alt="" className="w-full h-48 object-cover" />
@@ -141,7 +184,7 @@ export default function SlideViewer({ slides, onClose }: SlideViewerProps) {
             </div>
           )}
 
-          {/* CLOSING slides */}
+          {/* Closing slides */}
           {slide.type === 'CLOSING' && (
             <div className="relative z-10 flex flex-col items-center justify-center min-h-[500px] px-16 py-20 text-center">
               {slide.title && (
@@ -160,7 +203,7 @@ export default function SlideViewer({ slides, onClose }: SlideViewerProps) {
 
           {/* Key Points slides */}
           {slide.type === 'KEY_POINTS' && (
-            <div className="px-16 py-14" style={imgUrl(slide.imageUrl) ? { backgroundImage: `linear-gradient(rgba(255,255,255,0.95), rgba(255,255,255,0.95)), url(${imgUrl(slide.imageUrl)})`, backgroundSize: 'cover', backgroundPosition: 'center' } : {}}>
+            <div className="relative z-10 px-16 py-14">
               {slide.title && (
                 <h2 className="font-serif text-2xl font-bold text-slate-900 mb-6">{slide.title}</h2>
               )}
@@ -198,8 +241,8 @@ export default function SlideViewer({ slides, onClose }: SlideViewerProps) {
               <button
                 key={i}
                 onClick={() => setCurrent(i)}
-                className={`w-2 h-2 rounded-full transition-all ${
-                  i === current ? 'bg-indigo-500 w-6' : 'bg-slate-600 hover:bg-slate-500'
+                className={`w-2.5 h-2.5 rounded-full transition-all ${
+                  i === current ? 'bg-indigo-500 w-7' : 'bg-slate-600 hover:bg-slate-500'
                 }`}
               />
             ))}

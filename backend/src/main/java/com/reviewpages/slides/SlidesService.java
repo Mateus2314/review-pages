@@ -26,9 +26,28 @@ public class SlidesService {
      * strategy determines which blocks it can handle.
      */
     public List<SlideDTO> generateSlides(String content) {
+        return generateSlides(content, null);
+    }
+
+    /**
+     * Generates a slide deck with a chapter title for the opening slide.
+     */
+    public List<SlideDTO> generateSlides(String content, String chapterTitle) {
         List<SlideDTO> allSlides = new ArrayList<>();
+
+        // Special handling: title slide from chapter title (content starts with ## not #)
+        if (chapterTitle != null && !chapterTitle.isBlank()) {
+            allSlides.add(SlideDTO.builder()
+                    .type("TITLE")
+                    .title(chapterTitle)
+                    .content("Uma reflexão sobre a confiabilidade das Escrituras")
+                    .imageUrl("/images/chapter-title-bg.jpeg")
+                    .order(0)
+                    .build());
+        }
+
         String[] sections = splitIntoSections(content);
-        int order = 0;
+        int order = allSlides.size();
 
         for (int i = 0; i < sections.length; i++) {
             String section = sections[i].trim();

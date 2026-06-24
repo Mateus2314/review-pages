@@ -25,7 +25,7 @@ public class SlidesController {
         if (chapter.getContent() == null || chapter.getContent().isBlank()) {
             return ResponseEntity.noContent().build();
         }
-        List<SlideDTO> slides = slidesService.generateSlides(chapter.getContent());
+        List<SlideDTO> slides = slidesService.generateSlides(chapter.getContent(), chapter.getTitle());
         return ResponseEntity.ok(slides);
     }
 }
