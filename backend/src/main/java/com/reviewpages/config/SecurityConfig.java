@@ -53,7 +53,9 @@ public class SecurityConfig {
         config.setAllowedOriginPatterns(List.of(
             "http://localhost:*",
             "https://reviewpages-*.vercel.app",
-            "https://reviewpages-*.onrender.com"
+            "https://reviewpages-*.onrender.com",
+            "https://frontend-ashy-iota-43.vercel.app",
+            "https://*.vercel.app"
         ));
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         config.setAllowedHeaders(List.of("*"));
