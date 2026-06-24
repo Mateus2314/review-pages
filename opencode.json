@@ -1,0 +1,46 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "default_agent": "dev-web",
+  "agent": {
+    "dev-web": {
+      "description": "Full-stack web developer for React + Spring Boot reading analysis site. Use for general web development tasks.",
+      "mode": "primary"
+    },
+    "escritor": {
+      "description": "Agente orquestrador de escrita. Produz artigos tecnicamente corretos coordenando pesquisa, análise e revisão.",
+      "mode": "primary"
+    },
+    "frontend": {
+      "description": "React/TypeScript/Tailwind frontend specialist. Use for UI components and pages.",
+      "mode": "subagent"
+    },
+    "backend": {
+      "description": "Java/Spring Boot/PostgreSQL backend specialist. Use for APIs, entities, and business logic.",
+      "mode": "subagent"
+    },
+    "pesquisador": {
+      "description": "Pesquisador de referências e fontes na web para embasar artigos técnicos.",
+      "mode": "subagent"
+    },
+    "analista-escrita": {
+      "description": "Analisa qualidade de texto: gramática, clareza, estrutura, tom e legibilidade.",
+      "mode": "subagent"
+    },
+    "revisor": {
+      "description": "Revisão final: polimento de fluência, estilo, precisão técnica e consistência.",
+      "mode": "subagent"
+    }
+  },
+  "mcp": {
+    "markitdown": {
+      "type": "local",
+      "command": ["C:\\Users\\173330\\AppData\\Roaming\\Python\\Python312\\Scripts\\markitdown-mcp.exe"],
+      "enabled": true
+    },
+    "playwright": {
+      "type": "local",
+      "command": ["npx", "-y", "@playwright/mcp"],
+      "enabled": true
+    }
+  }
+}

@@ -1,0 +1,38 @@
+# Java / Maven
+backend/target/
+*.class
+*.jar
+*.war
+
+# Node
+node_modules/
+frontend/dist/
+
+# IDE
+.vscode/
+.idea/
+*.iml
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Env
+.env
+.env.local
+*.env
+
+# Logs
+*.log
+
+# Exports
+export/
+
+# Python
+__pycache__/
+*.pyc
+
+# Docker
+docker-data/
