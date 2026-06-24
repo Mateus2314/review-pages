@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { ArrowLeft, BookOpen } from 'lucide-react';
+import { ArrowLeft, BookOpen, Presentation } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { getChapter } from '../services/chapters';
 import { getReading } from '../services/readings';
-import type { Chapter } from '../types';
+import { generateSlides } from '../services/slides';
+import SlideViewer from '../components/SlideViewer';
+import type { Chapter, Slide } from '../types';
 
 const numberWords = ['', 'UM', 'DOIS', 'TRÊS', 'QUATRO', 'CINCO', 'SEIS', 'SETE', 'OITO', 'NOVE', 'DEZ'];
 
@@ -14,6 +16,9 @@ export default function ChapterPage() {
   const [chapter, setChapter] = useState<Chapter | null>(null);
   const [bookTitle, setBookTitle] = useState('');
   const [loading, setLoading] = useState(true);
+  const [slides, setSlides] = useState<Slide[]>([]);
+  const [showSlides, setShowSlides] = useState(false);
+  const [slidesLoading, setSlidesLoading] = useState(false);
 
   useEffect(() => {
     if (!chapterId || !readingId) return;
@@ -73,6 +78,26 @@ export default function ChapterPage() {
             <BookOpen className="w-4 h-4" />
             <span>Parte de {bookTitle}</span>
           </div>
+
+          <button
+            onClick={async () => {
+              if (!chapterId) return;
+              setSlidesLoading(true);
+              setShowSlides(true);
+              try {
+                const data = await generateSlides(Number(chapterId));
+                setSlides(data);
+              } catch {
+                setSlides([]);
+              }
+              setSlidesLoading(false);
+            }}
+            disabled={!chapter?.content}
+            className="mt-6 inline-flex items-center gap-2 px-5 py-2.5 bg-indigo-600 hover:bg-indigo-500 disabled:bg-slate-700 disabled:cursor-not-allowed text-white rounded-lg text-sm font-medium transition-all"
+          >
+            <Presentation className="w-4 h-4" />
+            {slidesLoading ? 'Gerando...' : 'Ver apresentação'}
+          </button>
         </div>
       </section>
 
@@ -99,6 +124,15 @@ export default function ChapterPage() {
           </Link>
         </div>
       </section>
+
+      {showSlides && slides.length > 0 && (
+        <SlideViewer slides={slides} onClose={() => { setShowSlides(false); setSlides([]); }} />
+      )}
+      {showSlides && slidesLoading && (
+        <div className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center">
+          <div className="animate-pulse text-purple-400 text-lg">Gerando slides...</div>
+        </div>
+      )}
     </div>
   );
 }

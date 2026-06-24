@@ -74,3 +74,13 @@ export interface ReadingForm {
   pageCount: number | null;
   currentPage: number | null;
 }
+
+export interface Slide {
+  type: 'TITLE' | 'CONTENT' | 'QUOTE' | 'KEY_POINTS' | 'CLOSING';
+  title?: string;
+  content?: string;
+  bullets?: string[];
+  quote?: string;
+  attribution?: string;
+  order: number;
+}
