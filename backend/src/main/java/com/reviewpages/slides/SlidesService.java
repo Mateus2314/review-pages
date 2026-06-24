@@ -1,5 +1,6 @@
 package com.reviewpages.slides;
 
+import com.reviewpages.slides.strategy.ContentSlideStrategy;
 import com.reviewpages.slides.strategy.SlideStrategy;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
