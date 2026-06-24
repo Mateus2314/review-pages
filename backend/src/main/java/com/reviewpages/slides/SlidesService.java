@@ -1,13 +1,9 @@
 package com.reviewpages.slides;
 
-import com.reviewpages.slides.strategy.ContentSlideStrategy;
-import com.reviewpages.slides.strategy.SlideStrategy;
-import lombok.RequiredArgsConstructor;
+import com.reviewpages.slides.strategy.*;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
 /**
  * Orchestrates slide generation using the Strategy pattern.
@@ -15,10 +11,21 @@ import java.util.List;
  * to produce a cohesive slide deck.
  */
 @Service
-@RequiredArgsConstructor
 public class SlidesService {
 
     private final List<SlideStrategy> strategies;
+
+    public SlidesService(List<SlideStrategy> strategyList) {
+        // Sort strategies: Quote (most specific) -> KeyPoints -> Content -> Title
+        Map<Class<?>, Integer> order = Map.of(
+                QuoteSlideStrategy.class, 1,
+                KeyPointsSlideStrategy.class, 2,
+                ContentSlideStrategy.class, 3,
+                TitleSlideStrategy.class, 4
+        );
+        strategyList.sort(Comparator.comparingInt(s -> order.getOrDefault(s.getClass(), 99)));
+        this.strategies = strategyList;
+    }
 
     /**
      * Generates a slide deck from markdown content.

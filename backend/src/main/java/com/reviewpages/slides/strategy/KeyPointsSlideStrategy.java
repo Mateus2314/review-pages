@@ -16,7 +16,35 @@ public class KeyPointsSlideStrategy implements SlideStrategy {
 
     @Override
     public boolean canHandle(String section, int index) {
-        return section.matches("(?ms).*^[\\-\\*\\d+\\.]\\s+.*");
+        // Count bullet lines vs total non-empty lines
+        String[] lines = section.split("\n");
+        int totalLines = 0;
+        int bulletLines = 0;
+        boolean foundFirstContent = false;
+        boolean firstIsBullet = false;
+
+        for (String line : lines) {
+            String trimmed = line.trim();
+            if (trimmed.isEmpty()) continue;
+            // Skip heading lines
+            if (trimmed.startsWith("#")) continue;
+            // Skip blockquotes
+            if (trimmed.startsWith(">")) continue;
+
+            totalLines++;
+            boolean isBullet = trimmed.matches("^[\\-\\*\\d]+\\.?\\s+.*");
+            if (isBullet) bulletLines++;
+            if (!foundFirstContent) {
+                firstIsBullet = isBullet;
+                foundFirstContent = true;
+            }
+        }
+
+        if (totalLines == 0) return false;
+
+        // Accept if: >50% bullet lines AND first content line is a bullet
+        boolean majorityBullets = (double) bulletLines / totalLines > 0.5;
+        return majorityBullets && firstIsBullet;
     }
 
     @Override

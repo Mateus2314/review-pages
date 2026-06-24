@@ -13,7 +13,7 @@ import java.util.List;
 @Component
 public class ContentSlideStrategy implements SlideStrategy {
 
-    private static final int MAX_CHARS_PER_SLIDE = 400;
+    private static final int MAX_CHARS_PER_SLIDE = 600;
 
     @Override
     public boolean canHandle(String section, int index) {
