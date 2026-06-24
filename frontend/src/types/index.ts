@@ -82,5 +82,6 @@ export interface Slide {
   bullets?: string[];
   quote?: string;
   attribution?: string;
+  imageUrl?: string;
   order: number;
 }

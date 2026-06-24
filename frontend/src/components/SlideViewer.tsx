@@ -57,7 +57,7 @@ export default function SlideViewer({ slides, onClose }: SlideViewerProps) {
         </div>
 
         {/* Main slide card */}
-        <div className={`rounded-2xl shadow-2xl overflow-hidden min-h-[500px] ${config.bg}`}>
+        <div className={`relative rounded-2xl shadow-2xl overflow-hidden min-h-[500px] ${config.bg}`}>
           {/* Close button */}
           {onClose && (
             <button
@@ -68,9 +68,21 @@ export default function SlideViewer({ slides, onClose }: SlideViewerProps) {
             </button>
           )}
 
+          {/* Background image overlay for TITLE, QUOTE, CLOSING */}
+          {slide.imageUrl && (slide.type === 'TITLE' || slide.type === 'QUOTE' || slide.type === 'CLOSING') && (
+            <div className="absolute inset-0 z-0">
+              <img
+                src={slide.imageUrl}
+                alt=""
+                className="w-full h-full object-cover opacity-20"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0F0728]/80 via-transparent to-[#0F0728]/60" />
+            </div>
+          )}
+
           {/* Title / Quote slides */}
           {slide.type === 'TITLE' && (
-            <div className="flex flex-col items-center justify-center min-h-[500px] px-16 py-20 text-center">
+            <div className="relative z-10 flex flex-col items-center justify-center min-h-[500px] px-16 py-20 text-center">
               <span className="text-xs font-semibold text-purple-400 tracking-[0.15em] uppercase mb-6">
                 APRESENTAÇÃO
               </span>
@@ -86,8 +98,13 @@ export default function SlideViewer({ slides, onClose }: SlideViewerProps) {
           )}
 
           {slide.type === 'QUOTE' && (
-            <div className="flex flex-col items-center justify-center min-h-[500px] px-16 py-20 text-center">
+            <div className="relative z-10 flex flex-col items-center justify-center min-h-[500px] px-16 py-20 text-center">
               <Quote className="w-12 h-12 text-indigo-400 mb-6 opacity-60" />
+              {slide.imageUrl && (
+                <div className="mb-6 w-24 h-24 rounded-full overflow-hidden border-2 border-indigo-400/30">
+                  <img src={slide.imageUrl} alt="" className="w-full h-full object-cover" />
+                </div>
+              )}
               <blockquote className="font-serif text-2xl lg:text-3xl text-slate-100 leading-relaxed max-w-3xl mb-8 italic">
                 &ldquo;{slide.quote}&rdquo;
               </blockquote>
@@ -100,20 +117,42 @@ export default function SlideViewer({ slides, onClose }: SlideViewerProps) {
           )}
 
           {/* Content slides */}
-          {(slide.type === 'CONTENT' || (slide.type !== 'TITLE' && slide.type !== 'QUOTE' && slide.type !== 'KEY_POINTS')) && (
+          {(slide.type === 'CONTENT' || (slide.type !== 'TITLE' && slide.type !== 'QUOTE' && slide.type !== 'KEY_POINTS' && slide.type !== 'CLOSING')) && (
             <div className="px-16 py-14">
+              {slide.imageUrl && (
+                <div className="mb-6 rounded-xl overflow-hidden max-h-64">
+                  <img src={slide.imageUrl} alt="" className="w-full h-48 object-cover" />
+                </div>
+              )}
               {slide.title && (
                 <h2 className="font-serif text-2xl font-bold text-slate-900 mb-4">{slide.title}</h2>
               )}
-              <div className="markdown text-slate-700 text-lg leading-relaxed prose prose-lg max-w-none">
+              <div className="markdown text-slate-700 text-lg leading-relaxed">
                 <ReactMarkdown remarkPlugins={[remarkGfm]}>{slide.content}</ReactMarkdown>
               </div>
             </div>
           )}
 
+          {/* CLOSING slides */}
+          {slide.type === 'CLOSING' && (
+            <div className="relative z-10 flex flex-col items-center justify-center min-h-[500px] px-16 py-20 text-center">
+              {slide.title && (
+                <h2 className="font-serif text-3xl text-white font-bold leading-tight mb-6">{slide.title}</h2>
+              )}
+              {slide.content && (
+                <p className="text-slate-400 text-lg max-w-2xl leading-relaxed">
+                  {slide.content}
+                </p>
+              )}
+              {slide.bullets?.map((b, i) => (
+                <p key={i} className="text-purple-400 text-base mt-2">{b}</p>
+              ))}
+            </div>
+          )}
+
           {/* Key Points slides */}
           {slide.type === 'KEY_POINTS' && (
-            <div className="px-16 py-14">
+            <div className="px-16 py-14" style={slide.imageUrl ? { backgroundImage: `linear-gradient(rgba(255,255,255,0.95), rgba(255,255,255,0.95)), url(${slide.imageUrl})`, backgroundSize: 'cover', backgroundPosition: 'center' } : {}}>
               {slide.title && (
                 <h2 className="font-serif text-2xl font-bold text-slate-900 mb-6">{slide.title}</h2>
               )}

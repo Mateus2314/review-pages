@@ -39,6 +39,7 @@ public class TitleSlideStrategy implements SlideStrategy {
                 .type("TITLE")
                 .title(title)
                 .content(content)
+                .imageUrl("/images/chapter-title-bg.png")
                 .order(order)
                 .build());
     }

@@ -3,15 +3,2705 @@
   "children": [
     {
       "type": "frame",
-      "id": "bi8Au",
+      "id": "BIV1P",
       "x": 0,
       "y": 0,
-      "name": "Frame",
+      "name": "Book Page",
+      "clip": true,
+      "width": 1280,
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "wtXmG",
+          "name": "Hero Section",
+          "width": "fill_container",
+          "fill": {
+            "type": "gradient",
+            "gradientType": "linear",
+            "enabled": true,
+            "rotation": 0,
+            "size": {
+              "height": 1
+            },
+            "colors": [
+              {
+                "color": "#07051A",
+                "position": 0
+              },
+              {
+                "color": "#1A1040",
+                "position": 0.5
+              },
+              {
+                "color": "#0F172A",
+                "position": 1
+              }
+            ]
+          },
+          "gap": 64,
+          "padding": [
+            80,
+            64
+          ],
+          "children": [
+            {
+              "type": "ellipse",
+              "id": "kuprf",
+              "layoutPosition": "absolute",
+              "x": -100,
+              "y": -200,
+              "name": "Deco Circle",
+              "metadata": {
+                "type": "unsplash",
+                "username": "loganvoss",
+                "link": "https://unsplash.com/@loganvoss",
+                "author": "Logan Voss"
+              },
+              "fill": {
+                "type": "image",
+                "enabled": true,
+                "url": "https://images.unsplash.com/photo-1739288717683-c8214be476de?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3ODIzMjAxMDR8&ixlib=rb-4.1.0&q=80&w=1080",
+                "mode": "fill"
+              },
+              "width": 500,
+              "height": 500
+            },
+            {
+              "type": "ellipse",
+              "id": "Ri9XE",
+              "layoutPosition": "absolute",
+              "x": 900,
+              "y": 400,
+              "name": "Deco Circle 2",
+              "metadata": {
+                "type": "unsplash",
+                "username": "boliviainteligente",
+                "link": "https://unsplash.com/@boliviainteligente",
+                "author": "BoliviaInteligente"
+              },
+              "fill": {
+                "type": "image",
+                "enabled": true,
+                "url": "https://images.unsplash.com/photo-1677784976154-816c3ceca511?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3ODIzMjAxMDV8&ixlib=rb-4.1.0&q=80&w=1080",
+                "mode": "fill"
+              },
+              "width": 300,
+              "height": 300
+            },
+            {
+              "type": "frame",
+              "id": "qqccf",
+              "name": "Cover Frame",
+              "width": 280,
+              "layout": "vertical",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "rectangle",
+                  "cornerRadius": 4,
+                  "id": "MutTo",
+                  "name": "Book Cover",
+                  "metadata": {
+                    "type": "unsplash",
+                    "username": "laurachouette",
+                    "link": "https://unsplash.com/@laurachouette",
+                    "author": "Laura Chouette"
+                  },
+                  "fill": {
+                    "type": "image",
+                    "enabled": true,
+                    "url": "https://images.unsplash.com/photo-1585834320351-96f1a8c84c77?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3ODIzMjAxMDN8&ixlib=rb-4.1.0&q=80&w=1080",
+                    "mode": "fill"
+                  },
+                  "width": 260,
+                  "height": 380,
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "#00000080",
+                    "offset": {
+                      "x": 8,
+                      "y": 12
+                    },
+                    "blur": 40
+                  }
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "wWeRh",
+              "name": "Book Info",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 20,
+              "justifyContent": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "A9sA1",
+                  "name": "Category",
+                  "fill": "#A78BFA",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "APOLOGÉTICA · FILOSOFIA",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "600",
+                  "letterSpacing": 3
+                },
+                {
+                  "type": "text",
+                  "id": "PMxnf",
+                  "name": "Book Title",
+                  "fill": "#FFFFFF",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "A Fé na era do ceticismo",
+                  "lineHeight": 1.1,
+                  "fontFamily": "Playfair Display",
+                  "fontSize": 48,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "hbKpM",
+                  "name": "Divider Line",
+                  "fill": "#7C3AED",
+                  "content": "——",
+                  "fontFamily": "Inter",
+                  "fontSize": 24,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "J8cBh",
+                  "name": "Author",
+                  "fill": "#C4B5FD",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Timothy Keller",
+                  "fontFamily": "Inter",
+                  "fontSize": 18,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "tUHOu",
+                  "name": "Description",
+                  "fill": "#94A3B8",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Neste livro, Timothy Keller examina as objeções mais comuns à fé cristã na cultura contemporânea. Com uma abordagem que combina teologia, filosofia e apologética, Keller oferece respostas profundas e acessíveis para questionamentos sobre a Bíblia, Deus e o sentido da vida.",
+                  "lineHeight": 1.7,
+                  "fontFamily": "Inter",
+                  "fontSize": 15,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "frame",
+                  "id": "H6vK6",
+                  "name": "Tags",
+                  "width": "fill_container",
+                  "gap": 10,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "ItuMO",
+                      "name": "Tag Religião",
+                      "fill": "#2D1B69",
+                      "cornerRadius": 20,
+                      "padding": [
+                        8,
+                        16
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "njnuk",
+                          "name": "Tag Text",
+                          "fill": "#A78BFA",
+                          "content": "Religião",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "SGfSi",
+                      "name": "Tag Filosofia",
+                      "fill": "#2D1B69",
+                      "cornerRadius": 20,
+                      "padding": [
+                        8,
+                        16
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "Emdjt",
+                          "name": "Tag Text",
+                          "fill": "#A78BFA",
+                          "content": "Filosofia",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "DjsjS",
+                      "name": "Tag Apologética",
+                      "fill": "#2D1B69",
+                      "cornerRadius": 20,
+                      "padding": [
+                        8,
+                        16
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "VxqYe",
+                          "name": "Tag Text",
+                          "fill": "#A78BFA",
+                          "content": "Apologética",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "v4Sk4",
+                      "name": "Tag Fé",
+                      "fill": "#2D1B69",
+                      "cornerRadius": 20,
+                      "padding": [
+                        8,
+                        16
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "Cu6kN",
+                          "name": "Tag Text",
+                          "fill": "#A78BFA",
+                          "content": "Fé",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "EF5bj",
+          "name": "Content Section",
+          "width": "fill_container",
+          "fill": "#F8FAFC",
+          "layout": "vertical",
+          "gap": 40,
+          "padding": [
+            80,
+            64
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "w1KdHM",
+              "name": "Stats Row",
+              "width": "fill_container",
+              "gap": 24,
+              "justifyContent": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "JvfKl",
+                  "name": "Stat Capítulos",
+                  "width": "fill_container",
+                  "fill": "#FFFFFF",
+                  "cornerRadius": 12,
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "#00000010",
+                    "offset": {
+                      "x": 0,
+                      "y": 2
+                    },
+                    "blur": 8
+                  },
+                  "layout": "vertical",
+                  "gap": 4,
+                  "padding": [
+                    24,
+                    32
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "csKUv",
+                      "name": "Stat Value",
+                      "fill": "#312E81",
+                      "content": "7",
+                      "fontFamily": "Playfair Display",
+                      "fontSize": 32,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "d3HPku",
+                      "name": "Stat Label",
+                      "fill": "#64748B",
+                      "content": "Capítulos",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "ZuMoz",
+                  "name": "Stat Páginas",
+                  "width": "fill_container",
+                  "fill": "#FFFFFF",
+                  "cornerRadius": 12,
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "#00000010",
+                    "offset": {
+                      "x": 0,
+                      "y": 2
+                    },
+                    "blur": 8
+                  },
+                  "layout": "vertical",
+                  "gap": 4,
+                  "padding": [
+                    24,
+                    32
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "AJpUa",
+                      "name": "Stat Value",
+                      "fill": "#312E81",
+                      "content": "320",
+                      "fontFamily": "Playfair Display",
+                      "fontSize": 32,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "fzQzg",
+                      "name": "Stat Label",
+                      "fill": "#64748B",
+                      "content": "Páginas",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "nIEcB",
+                  "name": "Stat Avaliação",
+                  "width": "fill_container",
+                  "fill": "#FFFFFF",
+                  "cornerRadius": 12,
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "#00000010",
+                    "offset": {
+                      "x": 0,
+                      "y": 2
+                    },
+                    "blur": 8
+                  },
+                  "layout": "vertical",
+                  "gap": 4,
+                  "padding": [
+                    24,
+                    32
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "srQBq",
+                      "name": "Stat Value",
+                      "fill": "#312E81",
+                      "content": "4.8",
+                      "fontFamily": "Playfair Display",
+                      "fontSize": 32,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "NQRx0",
+                      "name": "Stat Label",
+                      "fill": "#64748B",
+                      "content": "Avaliação",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "OdXQl",
+                  "name": "Stat Resenhas",
+                  "width": "fill_container",
+                  "fill": "#FFFFFF",
+                  "cornerRadius": 12,
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "#00000010",
+                    "offset": {
+                      "x": 0,
+                      "y": 2
+                    },
+                    "blur": 8
+                  },
+                  "layout": "vertical",
+                  "gap": 4,
+                  "padding": [
+                    24,
+                    32
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "h7j5f",
+                      "name": "Stat Value",
+                      "fill": "#312E81",
+                      "content": "12",
+                      "fontFamily": "Playfair Display",
+                      "fontSize": 32,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "zBSBc",
+                      "name": "Stat Label",
+                      "fill": "#64748B",
+                      "content": "Resenhas",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "500"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "ysovu",
+              "name": "Chapters Section",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 24,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "SgcvI",
+                  "name": "Section Title",
+                  "fill": "#0F172A",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Capítulos",
+                  "fontFamily": "Playfair Display",
+                  "fontSize": 28,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "frame",
+                  "id": "XVGwU",
+                  "name": "Chapter List",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 4,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "Zan71",
+                      "name": "Chapter Row 01",
+                      "width": "fill_container",
+                      "fill": "#FFFFFF",
+                      "cornerRadius": 12,
+                      "effect": {
+                        "type": "shadow",
+                        "shadowType": "outer",
+                        "color": "#00000008",
+                        "offset": {
+                          "x": 0,
+                          "y": 2
+                        },
+                        "blur": 12
+                      },
+                      "gap": 20,
+                      "padding": [
+                        20,
+                        24
+                      ],
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "gw0uM",
+                          "name": "Chapter Badge",
+                          "width": 48,
+                          "height": 48,
+                          "fill": "#F1F5F9",
+                          "cornerRadius": 12,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "InBjT",
+                              "name": "Chapter Number",
+                              "fill": "#64748B",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "01",
+                              "fontFamily": "Inter",
+                              "fontSize": 16,
+                              "fontWeight": "700"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "X369E",
+                          "name": "Chapter Title",
+                          "fill": "#1E293B",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "A fé não pode ser testada — será?",
+                          "fontFamily": "Inter",
+                          "fontSize": 16,
+                          "fontWeight": "500"
+                        },
+                        {
+                          "type": "text",
+                          "id": "XGJZf",
+                          "name": "Arrow",
+                          "fill": "#94A3B8",
+                          "content": "→",
+                          "fontFamily": "Inter",
+                          "fontSize": 18,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "unX8F",
+                      "name": "Chapter Row 02",
+                      "width": "fill_container",
+                      "fill": "#FFFFFF",
+                      "cornerRadius": 12,
+                      "effect": {
+                        "type": "shadow",
+                        "shadowType": "outer",
+                        "color": "#00000008",
+                        "offset": {
+                          "x": 0,
+                          "y": 2
+                        },
+                        "blur": 12
+                      },
+                      "gap": 20,
+                      "padding": [
+                        20,
+                        24
+                      ],
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "O68A4",
+                          "name": "Chapter Badge",
+                          "width": 48,
+                          "height": 48,
+                          "fill": "#F1F5F9",
+                          "cornerRadius": 12,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "hSZSx",
+                              "name": "Chapter Number",
+                              "fill": "#64748B",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "02",
+                              "fontFamily": "Inter",
+                              "fontSize": 16,
+                              "fontWeight": "700"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "D9KxWP",
+                          "name": "Chapter Title",
+                          "fill": "#1E293B",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "O que a fé tem a ver com a razão?",
+                          "fontFamily": "Inter",
+                          "fontSize": 16,
+                          "fontWeight": "500"
+                        },
+                        {
+                          "type": "text",
+                          "id": "H8fY8b",
+                          "name": "Arrow",
+                          "fill": "#94A3B8",
+                          "content": "→",
+                          "fontFamily": "Inter",
+                          "fontSize": 18,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "v8cs7",
+                      "name": "Chapter Row 03",
+                      "width": "fill_container",
+                      "fill": "#FFFFFF",
+                      "cornerRadius": 12,
+                      "effect": {
+                        "type": "shadow",
+                        "shadowType": "outer",
+                        "color": "#00000008",
+                        "offset": {
+                          "x": 0,
+                          "y": 2
+                        },
+                        "blur": 12
+                      },
+                      "gap": 20,
+                      "padding": [
+                        20,
+                        24
+                      ],
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "kJIjr",
+                          "name": "Chapter Badge",
+                          "width": 48,
+                          "height": 48,
+                          "fill": "#F1F5F9",
+                          "cornerRadius": 12,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "FBCiT",
+                              "name": "Chapter Number",
+                              "fill": "#64748B",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "03",
+                              "fontFamily": "Inter",
+                              "fontSize": 16,
+                              "fontWeight": "700"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "QtJJ3",
+                          "name": "Chapter Title",
+                          "fill": "#1E293B",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Como pode um Deus bom permitir o sofrimento?",
+                          "fontFamily": "Inter",
+                          "fontSize": 16,
+                          "fontWeight": "500"
+                        },
+                        {
+                          "type": "text",
+                          "id": "l4fWKq",
+                          "name": "Arrow",
+                          "fill": "#94A3B8",
+                          "content": "→",
+                          "fontFamily": "Inter",
+                          "fontSize": 18,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "YKNNA",
+                      "name": "Chapter Row 04",
+                      "width": "fill_container",
+                      "fill": "#FFFFFF",
+                      "cornerRadius": 12,
+                      "effect": {
+                        "type": "shadow",
+                        "shadowType": "outer",
+                        "color": "#00000008",
+                        "offset": {
+                          "x": 0,
+                          "y": 2
+                        },
+                        "blur": 12
+                      },
+                      "gap": 20,
+                      "padding": [
+                        20,
+                        24
+                      ],
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "U8Sbu",
+                          "name": "Chapter Badge",
+                          "width": 48,
+                          "height": 48,
+                          "fill": "#F1F5F9",
+                          "cornerRadius": 12,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "pw97y",
+                              "name": "Chapter Number",
+                              "fill": "#64748B",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "04",
+                              "fontFamily": "Inter",
+                              "fontSize": 16,
+                              "fontWeight": "700"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "nMLVv",
+                          "name": "Chapter Title",
+                          "fill": "#1E293B",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "A ciência não torna a fé obsoleta?",
+                          "fontFamily": "Inter",
+                          "fontSize": 16,
+                          "fontWeight": "500"
+                        },
+                        {
+                          "type": "text",
+                          "id": "kbrpi",
+                          "name": "Arrow",
+                          "fill": "#94A3B8",
+                          "content": "→",
+                          "fontFamily": "Inter",
+                          "fontSize": 18,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "nAt85",
+                      "name": "Chapter Row 05",
+                      "width": "fill_container",
+                      "fill": "#FFFFFF",
+                      "cornerRadius": 12,
+                      "effect": {
+                        "type": "shadow",
+                        "shadowType": "outer",
+                        "color": "#00000008",
+                        "offset": {
+                          "x": 0,
+                          "y": 2
+                        },
+                        "blur": 12
+                      },
+                      "gap": 20,
+                      "padding": [
+                        20,
+                        24
+                      ],
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "sTuF7",
+                          "name": "Chapter Badge",
+                          "width": 48,
+                          "height": 48,
+                          "fill": "#F1F5F9",
+                          "cornerRadius": 12,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "E4WZX",
+                              "name": "Chapter Number",
+                              "fill": "#64748B",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "05",
+                              "fontFamily": "Inter",
+                              "fontSize": 16,
+                              "fontWeight": "700"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "W9Ujk",
+                          "name": "Chapter Title",
+                          "fill": "#1E293B",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Não são todas as religiões iguais?",
+                          "fontFamily": "Inter",
+                          "fontSize": 16,
+                          "fontWeight": "500"
+                        },
+                        {
+                          "type": "text",
+                          "id": "S5tKO4",
+                          "name": "Arrow",
+                          "fill": "#94A3B8",
+                          "content": "→",
+                          "fontFamily": "Inter",
+                          "fontSize": 18,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "t4yB8",
+                      "name": "Chapter Row 06",
+                      "width": "fill_container",
+                      "fill": "#FFFFFF",
+                      "cornerRadius": 12,
+                      "effect": {
+                        "type": "shadow",
+                        "shadowType": "outer",
+                        "color": "#00000008",
+                        "offset": {
+                          "x": 0,
+                          "y": 2
+                        },
+                        "blur": 12
+                      },
+                      "gap": 20,
+                      "padding": [
+                        20,
+                        24
+                      ],
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "NW9tw",
+                          "name": "Chapter Badge",
+                          "width": 48,
+                          "height": 48,
+                          "fill": "#F1F5F9",
+                          "cornerRadius": 12,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "LVwyj",
+                              "name": "Chapter Number",
+                              "fill": "#64748B",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "06",
+                              "fontFamily": "Inter",
+                              "fontSize": 16,
+                              "fontWeight": "700"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "eADY7",
+                          "name": "Chapter Title",
+                          "fill": "#1E293B",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "A Igreja não causou danos demais?",
+                          "fontFamily": "Inter",
+                          "fontSize": 16,
+                          "fontWeight": "500"
+                        },
+                        {
+                          "type": "text",
+                          "id": "dfSGr",
+                          "name": "Arrow",
+                          "fill": "#94A3B8",
+                          "content": "→",
+                          "fontFamily": "Inter",
+                          "fontSize": 18,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "vmxM0",
+                      "name": "Chapter Row 07",
+                      "width": "fill_container",
+                      "fill": "#EEF2FF",
+                      "cornerRadius": 12,
+                      "effect": {
+                        "type": "shadow",
+                        "shadowType": "outer",
+                        "color": "#6366F120",
+                        "offset": {
+                          "x": 0,
+                          "y": 2
+                        },
+                        "blur": 12
+                      },
+                      "gap": 20,
+                      "padding": [
+                        20,
+                        24
+                      ],
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "GLTvP",
+                          "name": "Chapter Badge",
+                          "width": 48,
+                          "height": 48,
+                          "fill": "#6366F1",
+                          "cornerRadius": 12,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "OJT09",
+                              "name": "Chapter Number",
+                              "fill": "#FFFFFF",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "07",
+                              "fontFamily": "Inter",
+                              "fontSize": 16,
+                              "fontWeight": "700"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "Y4vxk",
+                          "name": "Chapter Title",
+                          "fill": "#1E293B",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "A Bíblia não deve ser interpretada literalmente",
+                          "fontFamily": "Inter",
+                          "fontSize": 16,
+                          "fontWeight": "500"
+                        },
+                        {
+                          "type": "text",
+                          "id": "V6os8R",
+                          "name": "Arrow",
+                          "fill": "#94A3B8",
+                          "content": "→",
+                          "fontFamily": "Inter",
+                          "fontSize": 18,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "pqrte",
+          "name": "Quote Section",
+          "width": "fill_container",
+          "fill": {
+            "type": "gradient",
+            "gradientType": "linear",
+            "enabled": true,
+            "rotation": 0,
+            "size": {
+              "height": 1
+            },
+            "colors": [
+              {
+                "color": "#1A1040",
+                "position": 0
+              },
+              {
+                "color": "#07051A",
+                "position": 1
+              }
+            ]
+          },
+          "layout": "vertical",
+          "gap": 16,
+          "padding": [
+            80,
+            96
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "M1mLV",
+              "name": "Quote Mark",
+              "fill": "#7C3AED",
+              "content": "\"",
+              "fontFamily": "Playfair Display",
+              "fontSize": 72,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "vvgkS",
+              "name": "Quote Text",
+              "fill": "#E2E8F0",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "\"Se Jesus não era quem ele dizia ser, então ele era deliberadamente enganador ou estava iludido. A única alternativa racional restante é que ele era exatamente quem afirmava ser: Senhor.\"",
+              "lineHeight": 1.5,
+              "textAlign": "center",
+              "fontFamily": "Playfair Display",
+              "fontSize": 24,
+              "fontWeight": "normal",
+              "fontStyle": "italic"
+            },
+            {
+              "type": "text",
+              "id": "PyljG",
+              "name": "Quote Author",
+              "fill": "#A78BFA",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "— Timothy Keller, sobre o trilema de C.S. Lewis",
+              "textAlign": "center",
+              "fontFamily": "Inter",
+              "fontSize": 14,
+              "fontWeight": "500"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "mQcfv",
+      "x": 1360,
+      "y": 0,
+      "name": "Chapter Page",
+      "clip": true,
+      "width": 1280,
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "u7XC5",
+          "name": "Chapter Hero",
+          "width": "fill_container",
+          "fill": {
+            "type": "gradient",
+            "gradientType": "linear",
+            "enabled": true,
+            "rotation": 0,
+            "size": {
+              "height": 1
+            },
+            "colors": [
+              {
+                "color": "#0F0728",
+                "position": 0
+              },
+              {
+                "color": "#1A1040",
+                "position": 0.6
+              },
+              {
+                "color": "#0F172A",
+                "position": 1
+              }
+            ]
+          },
+          "layout": "vertical",
+          "gap": 24,
+          "padding": [
+            80,
+            64
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "g0J26N",
+              "name": "Back Link",
+              "width": "fill_container",
+              "gap": 8,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "i8D0k",
+                  "name": "Back Arrow",
+                  "fill": "#A78BFA",
+                  "content": "←",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "500"
+                },
+                {
+                  "type": "text",
+                  "id": "of3Zk",
+                  "name": "Back Text",
+                  "fill": "#A78BFA",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Voltar para o livro",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "500"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "Cjy17",
+              "name": "Book Label",
+              "fill": "#7C3AED",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "A FÉ NA ERA DO CETICISMO",
+              "fontFamily": "Inter",
+              "fontSize": 12,
+              "fontWeight": "600",
+              "letterSpacing": 2
+            },
+            {
+              "type": "frame",
+              "id": "v30lh",
+              "name": "Chapter Number Area",
+              "width": "fill_container",
+              "gap": 16,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "rectangle",
+                  "cornerRadius": 16,
+                  "id": "s9sYzo",
+                  "name": "Ch Num Badge",
+                  "fill": "#7C3AED",
+                  "width": 64,
+                  "height": 64
+                },
+                {
+                  "type": "text",
+                  "id": "qqXdK",
+                  "name": "Ch Num Label",
+                  "fill": "#A78BFA",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "CAPÍTULO SETE",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "500",
+                  "letterSpacing": 2
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "QBpse",
+              "name": "Chapter Title",
+              "fill": "#FFFFFF",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "A Bíblia não deve ser interpretada literalmente",
+              "lineHeight": 1.15,
+              "fontFamily": "Playfair Display",
+              "fontSize": 40,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "Z8sp0",
+              "name": "Chapter Subtitle",
+              "fill": "#94A3B8",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "Timothy Keller enfrenta a objeção de que a Bíblia é um documento não confiável, culturalmente obsoleto e historicamente duvidoso. Uma defesa poderosa da confiabilidade histórica das Escrituras.",
+              "lineHeight": 1.6,
+              "fontFamily": "Inter",
+              "fontSize": 15,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "bAZ0J",
+              "name": "Hero Quote",
+              "width": "fill_container",
+              "fill": "#2D1B69",
+              "cornerRadius": 12,
+              "layout": "vertical",
+              "gap": 8,
+              "padding": [
+                20,
+                24
+              ],
+              "children": [
+                {
+                  "type": "text",
+                  "id": "UiD9O",
+                  "name": "Hero Quote Text",
+                  "fill": "#C4B5FD",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "\"No princípio era o Verbo, e o Verbo estava com Deus, e o Verbo era Deus.\"",
+                  "lineHeight": 1.5,
+                  "fontFamily": "Playfair Display",
+                  "fontSize": 18,
+                  "fontWeight": "500",
+                  "fontStyle": "italic"
+                },
+                {
+                  "type": "text",
+                  "id": "DG1Pu",
+                  "name": "Hero Quote Ref",
+                  "fill": "#7C3AED",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "— João 1.1",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "y4JZP",
+          "name": "Content Section",
+          "width": "fill_container",
+          "fill": "#F8FAFC",
+          "layout": "vertical",
+          "gap": 20,
+          "padding": [
+            80,
+            64
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "AfoJK",
+              "name": "Section Title Intro",
+              "fill": "#0F172A",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "Introdução: No princípio era o Verbo",
+              "fontFamily": "Playfair Display",
+              "fontSize": 22,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "A6U628",
+              "name": "Paragraph 1",
+              "fill": "#334155",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "É significativo que o evangelho de João, um dos textos mais antigos e profundos do cristianismo, comece não com uma genealogia ou um relato histórico, mas com uma declaração teológica que conecta a criação do universo à pessoa de Jesus Cristo. Este versículo estabelece desde o início que a Escritura não é meramente um documento histórico ou literário — ela carrega uma autoridade que transcende o tempo e a cultura.",
+              "lineHeight": 1.8,
+              "fontFamily": "Inter",
+              "fontSize": 15,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "mEg8X",
+              "name": "Paragraph 2",
+              "fill": "#334155",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "O capítulo 7 de A Fé na Era do Ceticismo de Timothy Keller enfrenta precisamente essa questão: a Bíblia pode ser interpretada literalmente? Ela tem autoridade absoluta sobre a vida e a fé do cristão? Ou deve ser lida com um filtro cultural que separa o que é 'real' do que é 'mito'?",
+              "lineHeight": 1.8,
+              "fontFamily": "Inter",
+              "fontSize": 15,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "fUOJH",
+              "name": "Quote Block",
+              "width": "fill_container",
+              "fill": "#FFFFFF",
+              "cornerRadius": 12,
+              "effect": {
+                "type": "shadow",
+                "shadowType": "outer",
+                "color": "#6366F120",
+                "offset": {
+                  "x": 0,
+                  "y": 4
+                },
+                "blur": 16
+              },
+              "layout": "vertical",
+              "gap": 8,
+              "padding": [
+                24,
+                28
+              ],
+              "children": [
+                {
+                  "type": "text",
+                  "id": "v6pjf",
+                  "name": "Quote Mark 2",
+                  "fill": "#6366F1",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "\"",
+                  "fontFamily": "Playfair Display",
+                  "fontSize": 48,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "MGGNa",
+                  "name": "Quote Content",
+                  "fill": "#312E81",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "A Bíblia não é um livro que caiu do céu. É uma coleção divinamente inspirada de textos humanos, cada um com seu próprio contexto e propósito.",
+                  "lineHeight": 1.6,
+                  "fontFamily": "Playfair Display",
+                  "fontSize": 18,
+                  "fontWeight": "500",
+                  "fontStyle": "italic"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "TnINz",
+              "name": "Paragraph 3",
+              "fill": "#334155",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "Keller reconhece que o senso comum contemporâneo — especialmente nos centros urbanos seculares — tende a descartar a Bíblia como um documento não confiável, culturalmente obsoleto e historicamente duvidoso. O capítulo se propõe a responder a três objeções fundamentais: a objeção histórica, a objeção literária e a objeção cultural.",
+              "lineHeight": 1.8,
+              "fontFamily": "Inter",
+              "fontSize": 15,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "novaq",
+              "name": "Section Sep",
+              "fill": "#6366F1",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "◆ ◆ ◆",
+              "textAlign": "center",
+              "fontFamily": "Inter",
+              "fontSize": 20,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "UAGhm",
+              "name": "Section Title 2",
+              "fill": "#0F172A",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "1. Quem foi o Jesus histórico?",
+              "fontFamily": "Playfair Display",
+              "fontSize": 22,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "RB0wk",
+              "name": "Paragraph 4",
+              "fill": "#334155",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "A primeira grande questão que Keller aborda é se Jesus realmente existiu como a Bíblia o apresenta, ou se ele é apenas um mito comparável aos semideuses da mitologia grega e romana. Keller relembra sua própria jornada intelectual na universidade no final dos anos 1960, quando foi exposto à sabedoria acadêmica vigente: os Evangelhos seriam derivados de tradições orais que teriam moldado as histórias sobre Jesus.",
+              "lineHeight": 1.8,
+              "fontFamily": "Inter",
+              "fontSize": 15,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "O9WDRc",
+              "name": "Read More",
+              "fill": "#6366F1",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "Continue lendo →",
+              "fontFamily": "Inter",
+              "fontSize": 14,
+              "fontWeight": "600"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "Hsecv",
+      "x": 1360,
+      "y": 2151,
+      "name": "Home Page",
+      "clip": true,
+      "width": 1280,
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "N4JVB",
+          "name": "Home Hero",
+          "width": "fill_container",
+          "fill": {
+            "type": "gradient",
+            "gradientType": "linear",
+            "enabled": true,
+            "rotation": 0,
+            "size": {
+              "height": 1
+            },
+            "colors": [
+              {
+                "color": "#07051A",
+                "position": 0
+              },
+              {
+                "color": "#1A1040",
+                "position": 0.5
+              },
+              {
+                "color": "#0F172A",
+                "position": 1
+              }
+            ]
+          },
+          "layout": "vertical",
+          "gap": 24,
+          "padding": [
+            80,
+            120
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "OVSCt",
+              "name": "Home Badge",
+              "fill": "#A78BFA",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "Plataforma de resenhas e análises",
+              "fontFamily": "Inter",
+              "fontSize": 12,
+              "fontWeight": "500"
+            },
+            {
+              "type": "text",
+              "id": "n8RsK4",
+              "name": "Home Title",
+              "fill": "#FFFFFF",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "Review Pages",
+              "textAlign": "center",
+              "fontFamily": "Playfair Display",
+              "fontSize": 64,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "s3pKOi",
+              "name": "Home Subtitle",
+              "fill": "#94A3B8",
+              "textGrowth": "fixed-width",
+              "width": 600,
+              "content": "Registre e analise suas leituras. Livros, artigos, papers — tudo em um só lugar.",
+              "textAlign": "center",
+              "fontFamily": "Inter",
+              "fontSize": 18,
+              "fontWeight": "300"
+            },
+            {
+              "type": "frame",
+              "id": "j8vEKj",
+              "name": "Button Row",
+              "gap": 12,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "T9EF7b",
+                  "name": "Btn Primary",
+                  "fill": "#7C3AED",
+                  "cornerRadius": 12,
+                  "padding": [
+                    12,
+                    24
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "ufJFf",
+                      "name": "Btn Text",
+                      "fill": "#FFFFFF",
+                      "content": "Explorar leituras",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "500"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "udZHO",
+      "x": 2720,
+      "y": 2151,
+      "name": "Readings Page",
+      "clip": true,
+      "width": 1280,
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "hfBSU",
+          "name": "Readings Hero",
+          "width": "fill_container",
+          "fill": {
+            "type": "gradient",
+            "gradientType": "linear",
+            "enabled": true,
+            "rotation": 0,
+            "size": {
+              "height": 1
+            },
+            "colors": [
+              {
+                "color": "#0F0728",
+                "position": 0
+              },
+              {
+                "color": "#1A1040",
+                "position": 1
+              }
+            ]
+          },
+          "padding": [
+            48,
+            64
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "CZHvr",
+              "name": "Readings Title",
+              "fill": "#FFFFFF",
+              "content": "Leituras",
+              "fontFamily": "Playfair Display",
+              "fontSize": 32,
+              "fontWeight": "700"
+            },
+            {
+              "type": "frame",
+              "id": "lGXGX",
+              "name": "Btn Add",
+              "fill": "#7C3AED",
+              "cornerRadius": 10,
+              "padding": [
+                10,
+                20
+              ],
+              "children": [
+                {
+                  "type": "text",
+                  "id": "tLu7n",
+                  "name": "Btn Add Text",
+                  "fill": "#FFFFFF",
+                  "content": "+ Nova leitura",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "500"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "V0xTD",
+      "x": 4080,
+      "y": 2151,
+      "name": "Reading Detail Page",
       "clip": true,
       "width": 800,
-      "height": 600,
-      "fill": "#FFFFFF",
-      "layout": "none"
+      "fill": "#F8FAFC",
+      "layout": "vertical",
+      "gap": 24,
+      "padding": [
+        40,
+        48
+      ],
+      "children": [
+        {
+          "type": "text",
+          "id": "GLA4J",
+          "name": "Back Link",
+          "fill": "#64748B",
+          "textGrowth": "fixed-width",
+          "width": "fill_container",
+          "content": "← Voltar para leituras",
+          "fontFamily": "Inter",
+          "fontSize": 13,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "frame",
+          "id": "aSbkI",
+          "name": "Detail Card",
+          "width": "fill_container",
+          "fill": "#FFFFFF",
+          "cornerRadius": 16,
+          "layout": "vertical",
+          "gap": 16,
+          "padding": 32,
+          "children": [
+            {
+              "type": "frame",
+              "id": "qBc9D",
+              "name": "Type Tag",
+              "fill": "#EEF2FF",
+              "cornerRadius": 8,
+              "padding": [
+                6,
+                12
+              ],
+              "children": [
+                {
+                  "type": "text",
+                  "id": "cnOph",
+                  "name": "Type Text",
+                  "fill": "#6366F1",
+                  "content": "LIVRO",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "500"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "gtPkY",
+              "name": "Detail Title",
+              "fill": "#0F172A",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "A Fé na era do ceticismo",
+              "fontFamily": "Playfair Display",
+              "fontSize": 24,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "j5qJk3",
+              "name": "Detail Author",
+              "fill": "#64748B",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "Timothy Keller",
+              "fontFamily": "Inter",
+              "fontSize": 15,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "TA3Qo",
+              "name": "Detail Review",
+              "fill": "#475569",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "Timothy Keller examina as objeções mais comuns à fé cristã na cultura contemporânea. Com uma abordagem que combina teologia, filosofia e apologética, Keller oferece respostas profundas e acessíveis.",
+              "lineHeight": 1.7,
+              "fontFamily": "Inter",
+              "fontSize": 14,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "b8Mnz2",
+              "name": "Actions",
+              "width": "fill_container",
+              "gap": 16,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "ym2lr",
+                  "name": "Like",
+                  "fill": "#94A3AF",
+                  "content": "♥ 12",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "pYZvp",
+                  "name": "Comments",
+                  "fill": "#94A3AF",
+                  "content": "💬 5",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "sGTyY",
+      "x": 1360,
+      "y": 2648,
+      "name": "Flowchart",
+      "clip": true,
+      "width": 920,
+      "fill": {
+        "type": "gradient",
+        "gradientType": "linear",
+        "enabled": true,
+        "rotation": 0,
+        "size": {
+          "height": 1
+        },
+        "colors": [
+          {
+            "color": "#F8FAFC",
+            "position": 0
+          },
+          {
+            "color": "#EEF2FF",
+            "position": 1
+          }
+        ]
+      },
+      "layout": "vertical",
+      "gap": 20,
+      "padding": 32,
+      "children": [
+        {
+          "type": "text",
+          "id": "aru4h",
+          "name": "Flow Title",
+          "fill": "#1E293B",
+          "textGrowth": "fixed-width",
+          "width": "fill_container",
+          "content": "Os Quatro Evangelhos",
+          "fontFamily": "Playfair Display",
+          "fontSize": 22,
+          "fontWeight": "700"
+        },
+        {
+          "type": "text",
+          "id": "O3QJ4",
+          "name": "Flow Subtitle",
+          "fill": "#64748B",
+          "textGrowth": "fixed-width",
+          "width": "fill_container",
+          "content": "Período de composição: ~50 d.C. — 100 d.C.",
+          "fontFamily": "Inter",
+          "fontSize": 12,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "frame",
+          "id": "sXcjs",
+          "name": "Header Row",
+          "width": "fill_container",
+          "gap": 10,
+          "children": [
+            {
+              "type": "frame",
+              "id": "EHECl",
+              "name": "Spacer",
+              "width": 100,
+              "height": 34
+            },
+            {
+              "type": "frame",
+              "id": "uhgyK",
+              "name": "Head Marcos",
+              "width": "fill_container",
+              "height": 40,
+              "fill": "#312E81",
+              "cornerRadius": 8,
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "L1E9Tc",
+                  "name": "Head Text",
+                  "fill": "#FFFFFF",
+                  "content": "Marcos",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "600"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "dyVhw",
+              "name": "Head Mateus",
+              "width": "fill_container",
+              "height": 40,
+              "fill": "#312E81",
+              "cornerRadius": 8,
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "GQRZq",
+                  "name": "Head Text",
+                  "fill": "#FFFFFF",
+                  "content": "Mateus",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "600"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "rLoaN",
+              "name": "Head Lucas",
+              "width": "fill_container",
+              "height": 40,
+              "fill": "#312E81",
+              "cornerRadius": 8,
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "u8dHPU",
+                  "name": "Head Text",
+                  "fill": "#FFFFFF",
+                  "content": "Lucas",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "600"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "LECyG",
+              "name": "Head João",
+              "width": "fill_container",
+              "height": 40,
+              "fill": "#312E81",
+              "cornerRadius": 8,
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "ydSeH",
+                  "name": "Head Text",
+                  "fill": "#FFFFFF",
+                  "content": "João",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "600"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "zX0xz",
+          "name": "Row Autor",
+          "width": "fill_container",
+          "gap": 10,
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "CwlLs",
+              "name": "Label Autor",
+              "width": 100,
+              "height": 46,
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "e5og6",
+                  "name": "Label Text",
+                  "fill": "#475569",
+                  "content": "Autor",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "600"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "YoPyX",
+              "name": "Cell Autor Marcos",
+              "width": "fill_container",
+              "height": 46,
+              "fill": "#FFFFFF",
+              "cornerRadius": 8,
+              "padding": [
+                0,
+                10
+              ],
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "k07Fb",
+                  "name": "Cell Text",
+                  "fill": "#334155",
+                  "content": "João Marcos\n(discípulo de Pedro)",
+                  "lineHeight": 1.4,
+                  "textAlign": "center",
+                  "fontFamily": "Inter",
+                  "fontSize": 11,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "rA2Po",
+              "name": "Cell Autor Mateus",
+              "width": "fill_container",
+              "height": 46,
+              "fill": "#F8FAFC",
+              "cornerRadius": 8,
+              "padding": [
+                0,
+                10
+              ],
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "ImyxC",
+                  "name": "Cell Text",
+                  "fill": "#334155",
+                  "content": "Mateus (Levi)\n(ex-cobrador)",
+                  "lineHeight": 1.4,
+                  "textAlign": "center",
+                  "fontFamily": "Inter",
+                  "fontSize": 11,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "OXHDo",
+              "name": "Cell Autor Lucas",
+              "width": "fill_container",
+              "height": 46,
+              "fill": "#F1F5F9",
+              "cornerRadius": 8,
+              "padding": [
+                0,
+                10
+              ],
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "yaW4y",
+                  "name": "Cell Text",
+                  "fill": "#334155",
+                  "content": "Lucas\n(médico, helenista)",
+                  "lineHeight": 1.4,
+                  "textAlign": "center",
+                  "fontFamily": "Inter",
+                  "fontSize": 11,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "uEXdZ",
+              "name": "Cell Autor João",
+              "width": "fill_container",
+              "height": 46,
+              "fill": "#F5F3FF",
+              "cornerRadius": 8,
+              "padding": [
+                0,
+                10
+              ],
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "dIAbk",
+                  "name": "Cell Text",
+                  "fill": "#334155",
+                  "content": "João, filho de\nZebedeu (apóstolo)",
+                  "lineHeight": 1.4,
+                  "textAlign": "center",
+                  "fontFamily": "Inter",
+                  "fontSize": 11,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "c0Roj",
+          "name": "Row Data",
+          "width": "fill_container",
+          "gap": 10,
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "Z90Nz",
+              "name": "Label Data",
+              "width": 100,
+              "height": 36,
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "gfq1H",
+                  "name": "Label Text",
+                  "fill": "#475569",
+                  "content": "Data",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "600"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "Kj7wK",
+              "name": "Cell Data Marcos",
+              "width": "fill_container",
+              "height": 36,
+              "fill": "#FFFFFF",
+              "cornerRadius": 8,
+              "padding": [
+                0,
+                10
+              ],
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "Tcp3t",
+                  "name": "Cell Text",
+                  "fill": "#334155",
+                  "content": "~50-70 d.C.",
+                  "lineHeight": 1.4,
+                  "textAlign": "center",
+                  "fontFamily": "Inter",
+                  "fontSize": 11,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "IioDE",
+              "name": "Cell Data Mateus",
+              "width": "fill_container",
+              "height": 36,
+              "fill": "#F8FAFC",
+              "cornerRadius": 8,
+              "padding": [
+                0,
+                10
+              ],
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "R2BgQ",
+                  "name": "Cell Text",
+                  "fill": "#334155",
+                  "content": "~50-80 d.C.",
+                  "lineHeight": 1.4,
+                  "textAlign": "center",
+                  "fontFamily": "Inter",
+                  "fontSize": 11,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "L0gEWY",
+              "name": "Cell Data Lucas",
+              "width": "fill_container",
+              "height": 36,
+              "fill": "#F1F5F9",
+              "cornerRadius": 8,
+              "padding": [
+                0,
+                10
+              ],
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "ACUMf",
+                  "name": "Cell Text",
+                  "fill": "#334155",
+                  "content": "~59-90 d.C.",
+                  "lineHeight": 1.4,
+                  "textAlign": "center",
+                  "fontFamily": "Inter",
+                  "fontSize": 11,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "X0GsA",
+              "name": "Cell Data João",
+              "width": "fill_container",
+              "height": 36,
+              "fill": "#F5F3FF",
+              "cornerRadius": 8,
+              "padding": [
+                0,
+                10
+              ],
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "BDfmP",
+                  "name": "Cell Text",
+                  "fill": "#334155",
+                  "content": "~85-100 d.C.",
+                  "lineHeight": 1.4,
+                  "textAlign": "center",
+                  "fontFamily": "Inter",
+                  "fontSize": 11,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "UH76e",
+          "name": "Row Público",
+          "width": "fill_container",
+          "gap": 10,
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "rhnI5",
+              "name": "Label Público",
+              "width": 100,
+              "height": 36,
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "zTBgq",
+                  "name": "Label Text",
+                  "fill": "#475569",
+                  "content": "Público",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "600"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "ZlYge",
+              "name": "Cell Público Marcos",
+              "width": "fill_container",
+              "height": 36,
+              "fill": "#FFFFFF",
+              "cornerRadius": 8,
+              "padding": [
+                0,
+                10
+              ],
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "YcGJO",
+                  "name": "Cell Text",
+                  "fill": "#334155",
+                  "content": "Romanos",
+                  "lineHeight": 1.4,
+                  "textAlign": "center",
+                  "fontFamily": "Inter",
+                  "fontSize": 11,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "Pp4Ia",
+              "name": "Cell Público Mateus",
+              "width": "fill_container",
+              "height": 36,
+              "fill": "#F8FAFC",
+              "cornerRadius": 8,
+              "padding": [
+                0,
+                10
+              ],
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "R3K3dh",
+                  "name": "Cell Text",
+                  "fill": "#334155",
+                  "content": "Judeus",
+                  "lineHeight": 1.4,
+                  "textAlign": "center",
+                  "fontFamily": "Inter",
+                  "fontSize": 11,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "g62Be",
+              "name": "Cell Público Lucas",
+              "width": "fill_container",
+              "height": 36,
+              "fill": "#F1F5F9",
+              "cornerRadius": 8,
+              "padding": [
+                0,
+                10
+              ],
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "AfpCc",
+                  "name": "Cell Text",
+                  "fill": "#334155",
+                  "content": "Gentios (Teófilo)",
+                  "lineHeight": 1.4,
+                  "textAlign": "center",
+                  "fontFamily": "Inter",
+                  "fontSize": 11,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "FAez2",
+              "name": "Cell Público João",
+              "width": "fill_container",
+              "height": 36,
+              "fill": "#F5F3FF",
+              "cornerRadius": 8,
+              "padding": [
+                0,
+                10
+              ],
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "ohp4r",
+                  "name": "Cell Text",
+                  "fill": "#334155",
+                  "content": "Cristãos (todos)",
+                  "lineHeight": 1.4,
+                  "textAlign": "center",
+                  "fontFamily": "Inter",
+                  "fontSize": 11,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "MSdPr",
+          "name": "Row Idade",
+          "width": "fill_container",
+          "gap": 10,
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "EuLFV",
+              "name": "Label Idade",
+              "width": 100,
+              "height": 60,
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "EhM23",
+                  "name": "Label Text",
+                  "fill": "#475569",
+                  "content": "Idade",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "600"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "juzV2",
+              "name": "Cell Idade Marcos",
+              "width": "fill_container",
+              "height": 60,
+              "fill": "#FFFFFF",
+              "cornerRadius": 8,
+              "padding": [
+                0,
+                10
+              ],
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "jNcka",
+                  "name": "Cell Text",
+                  "fill": "#334155",
+                  "content": "† ~65 anos\nconheceu Pedro\nMarcos 14:51-52",
+                  "lineHeight": 1.4,
+                  "textAlign": "center",
+                  "fontFamily": "Inter",
+                  "fontSize": 11,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "j9hHx",
+              "name": "Cell Idade Mateus",
+              "width": "fill_container",
+              "height": 60,
+              "fill": "#F8FAFC",
+              "cornerRadius": 8,
+              "padding": [
+                0,
+                10
+              ],
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "ZoK2r",
+                  "name": "Cell Text",
+                  "fill": "#334155",
+                  "content": "† ~75 anos\ndiscípulo direto\nde Jesus",
+                  "lineHeight": 1.4,
+                  "textAlign": "center",
+                  "fontFamily": "Inter",
+                  "fontSize": 11,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "R2RN5",
+              "name": "Cell Idade Lucas",
+              "width": "fill_container",
+              "height": 60,
+              "fill": "#F1F5F9",
+              "cornerRadius": 8,
+              "padding": [
+                0,
+                10
+              ],
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "i1hvlI",
+                  "name": "Cell Text",
+                  "fill": "#334155",
+                  "content": "† ~84 anos\nconheceu Paulo\nAtos 16",
+                  "lineHeight": 1.4,
+                  "textAlign": "center",
+                  "fontFamily": "Inter",
+                  "fontSize": 11,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "iNIT4",
+              "name": "Cell Idade João",
+              "width": "fill_container",
+              "height": 60,
+              "fill": "#F5F3FF",
+              "cornerRadius": 8,
+              "padding": [
+                0,
+                10
+              ],
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "otyCQ",
+                  "name": "Cell Text",
+                  "fill": "#334155",
+                  "content": "† ~95 anos\ndiscípulo direto\nde Jesus",
+                  "lineHeight": 1.4,
+                  "textAlign": "center",
+                  "fontFamily": "Inter",
+                  "fontSize": 11,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "dmNML",
+          "name": "Row Fonte",
+          "width": "fill_container",
+          "gap": 10,
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "DqvBu",
+              "name": "Label Fonte",
+              "width": 100,
+              "height": 60,
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "l6eiqQ",
+                  "name": "Label Text",
+                  "fill": "#475569",
+                  "content": "Fonte",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "600"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "tutbI",
+              "name": "Cell Fonte Marcos",
+              "width": "fill_container",
+              "height": 60,
+              "fill": "#FFFFFF",
+              "cornerRadius": 8,
+              "padding": [
+                0,
+                10
+              ],
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "ZUuOC",
+                  "name": "Cell Text",
+                  "fill": "#334155",
+                  "content": "Pedro (tradição\nda igreja primitiva)",
+                  "lineHeight": 1.4,
+                  "textAlign": "center",
+                  "fontFamily": "Inter",
+                  "fontSize": 11,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "ugwEn",
+              "name": "Cell Fonte Mateus",
+              "width": "fill_container",
+              "height": 60,
+              "fill": "#F8FAFC",
+              "cornerRadius": 8,
+              "padding": [
+                0,
+                10
+              ],
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "eBF1M",
+                  "name": "Cell Text",
+                  "fill": "#334155",
+                  "content": "Tradição apostólica\n+ Marcos + Q",
+                  "lineHeight": 1.4,
+                  "textAlign": "center",
+                  "fontFamily": "Inter",
+                  "fontSize": 11,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "AvnhO",
+              "name": "Cell Fonte Lucas",
+              "width": "fill_container",
+              "height": 60,
+              "fill": "#F1F5F9",
+              "cornerRadius": 8,
+              "padding": [
+                0,
+                10
+              ],
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "VNxzc",
+                  "name": "Cell Text",
+                  "fill": "#334155",
+                  "content": "Pesquisa c/\ntestemunhas oculares\n+ Marcos + Q",
+                  "lineHeight": 1.4,
+                  "textAlign": "center",
+                  "fontFamily": "Inter",
+                  "fontSize": 11,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "v9tCtU",
+              "name": "Cell Fonte João",
+              "width": "fill_container",
+              "height": 60,
+              "fill": "#F5F3FF",
+              "cornerRadius": 8,
+              "padding": [
+                0,
+                10
+              ],
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "BzO2j",
+                  "name": "Cell Text",
+                  "fill": "#334155",
+                  "content": "Testemunha\nocular direta\ndos fatos",
+                  "lineHeight": 1.4,
+                  "textAlign": "center",
+                  "fontFamily": "Inter",
+                  "fontSize": 11,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   ]
 }

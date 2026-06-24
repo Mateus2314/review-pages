@@ -18,5 +18,6 @@ public class SlideDTO {
     private List<String> bullets; // Bullet points (for KEY_POINTS type)
     private String quote;         // Quote text (for QUOTE type)
     private String attribution;   // Quote author
+    private String imageUrl;      // Background or illustration image URL
     private int order;            // Slide order in the deck
 }

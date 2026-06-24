@@ -62,10 +62,25 @@ public class SlidesService {
     }
 
     /**
-     * Splits markdown content into logical sections separated by blank lines or thematic breaks.
+     * Splits markdown content into logical sections by headings (##), blank lines, and thematic breaks.
+     * This produces larger, more meaningful slides compared to paragraph-by-paragraph splitting.
      */
     private String[] splitIntoSections(String content) {
-        // Split on blank lines (paragraph breaks) and thematic breaks (---)
-        return content.split("(?m)\n\\s*\n|(?m)^---\\s*$");
+        // First, try to split on major section headings (## not followed by more #)
+        // This groups content under each heading into a cohesive section
+        // Fall back to blank-line splitting for sections without headings
+        String[] sections = content.split("(?m)^##\\s+");
+
+        // If we got only one section, try thematic breaks or paragraph breaks
+        if (sections.length <= 1) {
+            sections = content.split("(?m)\n\\s*\n|(?m)^---\\s*$");
+        } else {
+            // Re-add the ## prefix to each section (except the first, which is the intro)
+            for (int i = 1; i < sections.length; i++) {
+                sections[i] = "## " + sections[i];
+            }
+        }
+
+        return sections;
     }
 }
