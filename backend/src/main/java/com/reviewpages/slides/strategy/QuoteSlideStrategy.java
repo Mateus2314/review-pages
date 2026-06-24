@@ -36,11 +36,29 @@ public class QuoteSlideStrategy implements SlideStrategy {
 
         if (quote.isEmpty()) return List.of();
 
+        // Determine author portrait based on attribution
+        String imageUrl = findPortrait(attribution);
+
         return List.of(SlideDTO.builder()
                 .type("QUOTE")
                 .quote(quote.toString().trim())
                 .attribution(attribution.isEmpty() ? null : attribution)
+                .imageUrl(imageUrl)
                 .order(order)
                 .build());
+    }
+
+    /**
+     * Maps author names to portrait images.
+     */
+    private String findPortrait(String attribution) {
+        String lower = (attribution != null) ? attribution.toLowerCase() : "";
+        if (lower.contains("anne rice") || lower.contains("rice")) {
+            return "/images/anne-rice.jpeg";
+        }
+        if (lower.contains("c.s. lewis") || lower.contains("cs lewis") || lower.contains("lewis")) {
+            return "/images/cs-lewis.jpg";
+        }
+        return null;
     }
 }

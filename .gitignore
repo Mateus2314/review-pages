@@ -45,3 +45,8 @@ docker-data/
 
 # PDF downloads
 *.pdf
+
+# Screenshots and temp images
+dashboard.png
+register-page.png
+*.screenshot.*

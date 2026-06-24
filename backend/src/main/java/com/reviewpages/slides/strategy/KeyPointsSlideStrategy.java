@@ -40,6 +40,9 @@ public class KeyPointsSlideStrategy implements SlideStrategy {
 
         if (bullets.isEmpty()) return List.of();
 
+        // Find relevant image based on title or bullet content
+        String imageUrl = findImageForSection(title, bullets);
+
         // If too many bullets, split into multiple slides
         List<SlideDTO> slides = new ArrayList<>();
         int idx = 0;
@@ -50,11 +53,52 @@ public class KeyPointsSlideStrategy implements SlideStrategy {
                     .type("KEY_POINTS")
                     .title(title.isEmpty() ? null : title + (idx > 0 ? " (cont.)" : ""))
                     .bullets(chunk)
+                    .imageUrl(imageUrl)
                     .order(order++)
                     .build());
+            // Only show image on first slide
+            imageUrl = null;
             idx = end;
         }
 
         return slides;
+    }
+
+    /**
+     * Maps section keywords to relevant images.
+     */
+    private String findImageForSection(String title, List<String> bullets) {
+        String combined = (title != null ? title.toLowerCase() : "") + " " +
+                String.join(" ", bullets).toLowerCase();
+
+        if (combined.contains("anne rice") || combined.contains("rice")) {
+            return "/images/anne-rice.jpeg";
+        }
+        if (combined.contains("jesus") || combined.contains("histórico")) {
+            return "/images/historical-jesus.jpeg";
+        }
+        if (combined.contains("c.s. lewis") || combined.contains("cs lewis") || combined.contains("trilema")) {
+            return "/images/cs-lewis.jpg";
+        }
+        if (combined.contains("testemunha") || combined.contains("ocular") || combined.contains("bauckham")) {
+            return "/images/eyewitness-papyrus.jpg";
+        }
+        if (combined.contains("gnóstico") || combined.contains("tomé")) {
+            return "/images/gnostic-gospels.jpeg";
+        }
+        if (combined.contains("contraproducente") || combined.contains("crucificação")) {
+            return "/images/counterproductive.jpeg";
+        }
+        if (combined.contains("literário") || combined.contains("literária") || combined.contains("gênero")) {
+            return "/images/lewis-literary.jpg";
+        }
+        if (combined.contains("detalhe") || combined.contains("realista")) {
+            return "/images/real-details.jpg";
+        }
+        if (combined.contains("stepford") || combined.contains("cultural")) {
+            return "/images/god-of-stepford.jpg";
+        }
+
+        return null;
     }
 }
