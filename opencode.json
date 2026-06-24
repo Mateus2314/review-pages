@@ -46,6 +46,14 @@
       "type": "remote",
       "url": "https://mcp.neon.tech/mcp",
       "enabled": true
+    },
+    "render": {
+      "type": "remote",
+      "url": "https://mcp.render.com/mcp",
+      "headers": {
+        "Authorization": "Bearer rnd_al9u6HJRBtmgV0g7TpmPoccRpR9x"
+      },
+      "enabled": true
     }
   }
 }
