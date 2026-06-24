@@ -4,6 +4,14 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import type { Slide } from '../types';
 
+/** Resolve backend image paths to absolute URLs */
+const API_BASE = import.meta.env.VITE_API_URL?.replace(/\/api\/v1\/?$/, '') || '';
+function imgUrl(path?: string): string | undefined {
+  if (!path) return undefined;
+  if (path.startsWith('/images/')) return `${API_BASE}${path}`;
+  return path;
+}
+
 interface SlideViewerProps {
   slides: Slide[];
   onClose?: () => void;
@@ -69,10 +77,10 @@ export default function SlideViewer({ slides, onClose }: SlideViewerProps) {
           )}
 
           {/* Background image overlay for TITLE, QUOTE, CLOSING */}
-          {slide.imageUrl && (slide.type === 'TITLE' || slide.type === 'QUOTE' || slide.type === 'CLOSING') && (
+          {imgUrl(slide.imageUrl) && (slide.type === 'TITLE' || slide.type === 'QUOTE' || slide.type === 'CLOSING') && (
             <div className="absolute inset-0 z-0">
               <img
-                src={slide.imageUrl}
+                src={imgUrl(slide.imageUrl)}
                 alt=""
                 className="w-full h-full object-cover opacity-20"
               />
@@ -100,9 +108,9 @@ export default function SlideViewer({ slides, onClose }: SlideViewerProps) {
           {slide.type === 'QUOTE' && (
             <div className="relative z-10 flex flex-col items-center justify-center min-h-[500px] px-16 py-20 text-center">
               <Quote className="w-12 h-12 text-indigo-400 mb-6 opacity-60" />
-              {slide.imageUrl && (
+              {imgUrl(slide.imageUrl) && (
                 <div className="mb-6 w-24 h-24 rounded-full overflow-hidden border-2 border-indigo-400/30">
-                  <img src={slide.imageUrl} alt="" className="w-full h-full object-cover" />
+                  <img src={imgUrl(slide.imageUrl)} alt="" className="w-full h-full object-cover" />
                 </div>
               )}
               <blockquote className="font-serif text-2xl lg:text-3xl text-slate-100 leading-relaxed max-w-3xl mb-8 italic">
@@ -119,9 +127,9 @@ export default function SlideViewer({ slides, onClose }: SlideViewerProps) {
           {/* Content slides */}
           {(slide.type === 'CONTENT' || (slide.type !== 'TITLE' && slide.type !== 'QUOTE' && slide.type !== 'KEY_POINTS' && slide.type !== 'CLOSING')) && (
             <div className="px-16 py-14">
-              {slide.imageUrl && (
+              {imgUrl(slide.imageUrl) && (
                 <div className="mb-6 rounded-xl overflow-hidden max-h-64">
-                  <img src={slide.imageUrl} alt="" className="w-full h-48 object-cover" />
+                  <img src={imgUrl(slide.imageUrl)} alt="" className="w-full h-48 object-cover" />
                 </div>
               )}
               {slide.title && (
@@ -152,7 +160,7 @@ export default function SlideViewer({ slides, onClose }: SlideViewerProps) {
 
           {/* Key Points slides */}
           {slide.type === 'KEY_POINTS' && (
-            <div className="px-16 py-14" style={slide.imageUrl ? { backgroundImage: `linear-gradient(rgba(255,255,255,0.95), rgba(255,255,255,0.95)), url(${slide.imageUrl})`, backgroundSize: 'cover', backgroundPosition: 'center' } : {}}>
+            <div className="px-16 py-14" style={imgUrl(slide.imageUrl) ? { backgroundImage: `linear-gradient(rgba(255,255,255,0.95), rgba(255,255,255,0.95)), url(${imgUrl(slide.imageUrl)})`, backgroundSize: 'cover', backgroundPosition: 'center' } : {}}>
               {slide.title && (
                 <h2 className="font-serif text-2xl font-bold text-slate-900 mb-6">{slide.title}</h2>
               )}
