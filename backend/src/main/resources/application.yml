@@ -3,9 +3,9 @@ server:
 
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/reviewpages
-    username: reviewpages
-    password: reviewpages123
+    url: ${DATABASE_URL:jdbc:postgresql://localhost:5432/reviewpages}
+    username: ${DATABASE_USERNAME:reviewpages}
+    password: ${DATABASE_PASSWORD:reviewpages123}
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
@@ -22,7 +22,7 @@ spring:
 
 app:
   jwt:
-    secret: "d2ViLXNpdGUtcmV2aWV3LXBhZ2VzLWp3dC1zZWNyZXQta2V5LWZvci1hdXRoZW50aWNhdGlvbi0yMDI0"
+    secret: ${JWT_SECRET:d2ViLXNpdGUtcmV2aWV3LXBhZ2VzLWp3dC1zZWNyZXQta2V5LWZvci1hdXRoZW50aWNhdGlvbi0yMDI0}
     expiration-ms: 86400000
 
 springdoc:

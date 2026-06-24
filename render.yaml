@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: reviewpages-backend
+    env: docker
+    dockerfilePath: ./backend/Dockerfile
+    repo: https://github.com/mateus2314/reviewpages
+    branch: master
+    healthCheckPath: /actuator/health
+    envVars:
+      - key: PORT
+        value: "8081"
+      - key: SPRING_PROFILES_ACTIVE
+        value: production
+      - key: DATABASE_URL
+        fromEnv: DATABASE_URL
+      - key: DATABASE_USERNAME
+        fromEnv: DATABASE_USERNAME
+      - key: DATABASE_PASSWORD
+        fromEnv: DATABASE_PASSWORD
+      - key: JWT_SECRET
+        fromEnv: JWT_SECRET

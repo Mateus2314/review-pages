@@ -16,8 +16,6 @@ export default function ProfilePage() {
 
   if (!profile) return <p className="text-center text-gray-500">Carregando...</p>;
 
-  const finished = readings.filter((r) => r.status === 'FINISHED');
-
   return (
     <div className="max-w-3xl mx-auto">
       <div className="bg-white rounded-xl border border-gray-200 p-6 mb-6 text-center">

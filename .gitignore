@@ -40,5 +40,8 @@ docker-data/
 # Playwright MCP cache
 .playwright-mcp/
 
+# OpenCode auth secrets
+.opencode/supabase-auth.json
+
 # PDF downloads
 *.pdf

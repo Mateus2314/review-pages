@@ -1,0 +1,19 @@
+# Production profile - overrides for Render deployment
+spring:
+  jpa:
+    show-sql: false
+    hibernate:
+      ddl-auto: validate
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: never
+
+logging:
+  level:
+    com.reviewpages: INFO

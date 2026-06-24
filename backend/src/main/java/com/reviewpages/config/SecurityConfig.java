@@ -35,6 +35,7 @@ public class SecurityConfig {
                 .requestMatchers(HttpMethod.GET, "/api/v1/chapters/**").permitAll()
                 .requestMatchers(HttpMethod.GET, "/api/v1/users/**").permitAll()
                 .requestMatchers("/api-docs/**", "/swagger-ui/**").permitAll()
+                .requestMatchers("/actuator/health").permitAll()
                 .anyRequest().authenticated()
             )
             .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
@@ -49,7 +50,11 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsSource() {
         var config = new CorsConfiguration();
-        config.setAllowedOrigins(List.of("http://localhost:5173"));
+        config.setAllowedOriginPatterns(List.of(
+            "http://localhost:*",
+            "https://reviewpages-*.vercel.app",
+            "https://reviewpages-*.onrender.com"
+        ));
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         config.setAllowedHeaders(List.of("*"));
         config.setAllowCredentials(true);
