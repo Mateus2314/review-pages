@@ -94,37 +94,42 @@ public class KeyPointsSlideStrategy implements SlideStrategy {
 
     /**
      * Maps section keywords to relevant images.
+     * Order matters: most specific keywords first.
      */
     private String findImageForSection(String title, List<String> bullets) {
         String combined = (title != null ? title.toLowerCase() : "") + " " +
                 String.join(" ", bullets).toLowerCase();
 
-        if (combined.contains("anne rice") || combined.contains("rice")) {
-            return "/images/anne-rice.jpeg";
+        // Most specific first
+        if (combined.contains("stepford")) {
+            return "/images/god-of-stepford.jpg";
         }
-        if (combined.contains("jesus") || combined.contains("histórico")) {
-            return "/images/historical-jesus.jpeg";
-        }
-        if (combined.contains("c.s. lewis") || combined.contains("cs lewis") || combined.contains("trilema")) {
-            return "/images/cs-lewis.jpg";
-        }
-        if (combined.contains("testemunha") || combined.contains("ocular") || combined.contains("bauckham")) {
+        if (combined.contains("bauckham")) {
             return "/images/eyewitness-papyrus.jpg";
-        }
-        if (combined.contains("gnóstico") || combined.contains("tomé")) {
-            return "/images/gnostic-gospels.jpeg";
         }
         if (combined.contains("contraproducente") || combined.contains("crucificação")) {
             return "/images/counterproductive.jpeg";
         }
-        if (combined.contains("literário") || combined.contains("literária") || combined.contains("gênero")) {
+        if (combined.contains("anne rice")) {
+            return "/images/anne-rice.jpeg";
+        }
+        if (combined.contains("c.s. lewis") || combined.contains("cs lewis") || combined.contains("trilema")) {
+            return "/images/cs-lewis.jpg";
+        }
+        if (combined.contains("testemunha ocular") || combined.contains("primeiras testemunhas")) {
+            return "/images/eyewitness-papyrus.jpg";
+        }
+        if (combined.contains("gnóstico") || combined.contains("gnostic")) {
+            return "/images/gnostic-gospels.jpeg";
+        }
+        if (combined.contains("gênero literário") || combined.contains("genero literario")) {
             return "/images/lewis-literary.jpg";
         }
-        if (combined.contains("detalhe") || combined.contains("realista")) {
-            return "/images/real-details.jpg";
+        if (combined.contains("jesus") || combined.contains("histórico") || combined.contains("historico")) {
+            return "/images/historical-jesus.jpeg";
         }
-        if (combined.contains("stepford") || combined.contains("cultural")) {
-            return "/images/god-of-stepford.jpg";
+        if (combined.contains("realista") || combined.contains("detalhe")) {
+            return "/images/real-details.jpg";
         }
 
         return null;

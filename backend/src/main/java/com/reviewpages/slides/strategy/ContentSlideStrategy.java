@@ -57,6 +57,7 @@ public class ContentSlideStrategy implements SlideStrategy {
         }
 
         // Split into chunks if too long
+        int chunkIndex = 0;
         while (text.length() > MAX_CHARS_PER_SLIDE) {
             int splitAt = text.lastIndexOf(". ", MAX_CHARS_PER_SLIDE);
             if (splitAt < 0) splitAt = MAX_CHARS_PER_SLIDE;
@@ -70,11 +71,10 @@ public class ContentSlideStrategy implements SlideStrategy {
                     .imageUrl(imageUrl)
                     .order(order++)
                     .build());
-            // Only show title on first slide of a section
-            slideTitle = null;
-            // Only show image on first slide of the chunk
+            // Only show image on first chunk
             imageUrl = null;
             text = text.substring(splitAt).trim();
+            chunkIndex++;
         }
 
         if (!text.isEmpty()) {
@@ -92,36 +92,41 @@ public class ContentSlideStrategy implements SlideStrategy {
 
     /**
      * Maps content keywords to relevant images from static resources.
+     * Order matters: most specific keywords first to avoid false matches.
      */
     private String findImageForContent(String text) {
         String lower = text.toLowerCase();
 
-        if (lower.contains("anne rice") || lower.contains("rice,")) {
-            return "/images/anne-rice.jpeg";
+        // Most specific keywords first
+        if (lower.contains("stepford") || lower.contains("deus que sempre concorda")) {
+            return "/images/god-of-stepford.jpg";
         }
-        if (lower.contains("jesus hist") || lower.contains("jesus da história") || lower.contains("jesus real")) {
-            return "/images/historical-jesus.jpeg";
+        if (lower.contains("bauckham")) {
+            return "/images/eyewitness-papyrus.jpg";
+        }
+        if (lower.contains("contraproducente") || lower.contains("crucificação")) {
+            return "/images/counterproductive.jpeg";
+        }
+        if (lower.contains("anne rice")) {
+            return "/images/anne-rice.jpeg";
         }
         if (lower.contains("c.s. lewis") || lower.contains("cs lewis") || lower.contains("trilema")) {
             return "/images/cs-lewis.jpg";
         }
-        if (lower.contains("testemunha ocular") || lower.contains("bauckham") || lower.contains("testemunhas")) {
+        if (lower.contains("testemunha ocular") || lower.contains("primeiras testemunhas")) {
             return "/images/eyewitness-papyrus.jpg";
         }
-        if (lower.contains("gnóstico") || lower.contains("tomé") || lower.contains("gnostic")) {
+        if (lower.contains("gnóstico") || lower.contains("evangelhos gnósticos")) {
             return "/images/gnostic-gospels.jpeg";
         }
-        if (lower.contains("contraproducente") || lower.contains("crucificação") || lower.contains("vergonhosa")) {
-            return "/images/counterproductive.jpeg";
-        }
-        if (lower.contains("literária") || lower.contains("literary") || lower.contains("gênero literário")) {
+        if (lower.contains("gênero literário") || lower.contains("genero literario")) {
             return "/images/lewis-literary.jpg";
         }
-        if (lower.contains("detalhe") || lower.contains("almofada") || lower.contains("côvado") || lower.contains("escrevia no chão")) {
+        if (lower.contains("almofada") || lower.contains("côvado") || lower.contains("covado") || lower.contains("escrevia no chão")) {
             return "/images/real-details.jpg";
         }
-        if (lower.contains("stepford") || lower.contains("deus que sempre concorda")) {
-            return "/images/god-of-stepford.jpg";
+        if (lower.contains("jesus histórico") || lower.contains("jesus hist") || lower.contains("jesus real")) {
+            return "/images/historical-jesus.jpeg";
         }
 
         return null;
