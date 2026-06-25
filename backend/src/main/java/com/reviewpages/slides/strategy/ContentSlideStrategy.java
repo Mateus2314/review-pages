@@ -41,6 +41,9 @@ public class ContentSlideStrategy implements SlideStrategy {
         // Find matching image
         String imageUrl = ImageMatcher.findImage(slideTitle + " " + text);
 
+        // Strip image markdown tags from content (they're embeded for resenha but clutter slides)
+        text = text.replaceAll("!\\[[^\\]]*\\]\\([^)]*\\)", "").trim();
+
         if (text.isEmpty()) {
             slides.add(SlideDTO.builder()
                     .type("CONTENT")
