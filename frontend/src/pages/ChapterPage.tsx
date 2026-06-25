@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, BookOpen, Presentation } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import { transformImageUri } from '../utils/images';
 import { getChapter } from '../services/chapters';
 import { getReading } from '../services/readings';
 import { generateSlides } from '../services/slides';
@@ -104,7 +105,10 @@ export default function ChapterPage() {
       <section className="max-w-3xl mx-auto px-6 py-12 lg:py-16">
         {chapter.content ? (
           <div className="markdown">
-            <ReactMarkdown remarkPlugins={[remarkGfm]}>{chapter.content}</ReactMarkdown>
+            <ReactMarkdown
+              remarkPlugins={[remarkGfm]}
+              transformImageUri={transformImageUri}
+            >{chapter.content}</ReactMarkdown>
           </div>
         ) : (
           <div className="text-center py-20">
