@@ -50,3 +50,8 @@ docker-data/
 dashboard.png
 register-page.png
 *.screenshot.*
+
+# Playwright debug artifacts
+network-images.json
+page-snapshot.md
+screenshot-*.png
