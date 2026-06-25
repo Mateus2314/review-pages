@@ -3,12 +3,46 @@ import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, BookOpen, Presentation } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import type { Components } from 'react-markdown';
 import { transformImageUri } from '../utils/images';
 import { getChapter } from '../services/chapters';
 import { getReading } from '../services/readings';
 import { generateSlides } from '../services/slides';
 import SlideViewer from '../components/SlideViewer';
 import type { Chapter, Slide } from '../types';
+
+/** Extracts a YouTube video ID from various URL formats */
+function getYouTubeId(url: string): string | null {
+  try {
+    const u = new URL(url);
+    if (u.hostname === 'youtu.be') return u.pathname.slice(1).split('?')[0] || null;
+    if (u.hostname.includes('youtube.com')) {
+      if (u.pathname === '/watch') return u.searchParams.get('v');
+      if (u.pathname.startsWith('/embed/')) return u.pathname.split('/')[2];
+      if (u.pathname.startsWith('/shorts/')) return u.pathname.split('/')[2];
+    }
+    return null;
+  } catch {
+    return null;
+  }
+}
+
+/** Renders a YouTube video as an embedded iframe player */
+function YouTubeEmbed({ videoId }: { videoId: string }) {
+  return (
+    <div className="youtube-embed-wrapper my-6">
+      <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+        <iframe
+          className="absolute inset-0 w-full h-full rounded-xl shadow-lg"
+          src={`https://www.youtube.com/embed/${videoId}`}
+          title="YouTube video player"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        />
+      </div>
+    </div>
+  );
+}
 
 const numberWords = ['', 'UM', 'DOIS', 'TRÊS', 'QUATRO', 'CINCO', 'SEIS', 'SETE', 'OITO', 'NOVE', 'DEZ'];
 
@@ -33,6 +67,23 @@ export default function ChapterPage() {
       setLoading(false);
     });
   }, [chapterId, readingId]);
+
+  /** Custom ReactMarkdown components: renders YouTube links as embedded players */
+  const markdownComponents: Partial<Components> = {
+    a: ({ href, children, ...props }) => {
+      if (href) {
+        const videoId = getYouTubeId(href);
+        if (videoId) {
+          return <YouTubeEmbed videoId={videoId} />;
+        }
+      }
+      return (
+        <a href={href} {...props} className="text-indigo-600 hover:text-indigo-700 underline underline-offset-2 decoration-indigo-300 hover:decoration-indigo-500 transition-colors">
+          {children}
+        </a>
+      );
+    }
+  };
 
   if (loading) return (
     <div className="min-h-screen flex items-center justify-center bg-[#0F0728]">
@@ -107,6 +158,7 @@ export default function ChapterPage() {
           <div className="markdown">
             <ReactMarkdown
               remarkPlugins={[remarkGfm]}
+              components={markdownComponents}
               urlTransform={transformImageUri}
             >{chapter.content}</ReactMarkdown>
           </div>

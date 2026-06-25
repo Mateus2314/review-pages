@@ -88,25 +88,49 @@ public class SlidesService {
     }
 
     /**
-     * Splits markdown content into logical sections by headings (##), blank lines, and thematic breaks.
-     * This produces larger, more meaningful slides compared to paragraph-by-paragraph splitting.
+     * Splits markdown content into logical sections by headings (## or ###), blank lines, and thematic breaks.
+     * This produces more granular slides by also splitting on subsections (###),
+     * resulting in one slide per subsection rather than one per main section.
      */
     private String[] splitIntoSections(String content) {
-        // First, try to split on major section headings (## not followed by more #)
-        // This groups content under each heading into a cohesive section
-        // Fall back to blank-line splitting for sections without headings
-        String[] sections = content.split("(?m)^##\\s+");
+        // Split on both ## and ### headings to get one slide per subsection
+        String[] sections = content.split("(?m)^#{2,3}\\s+");
 
         // If we got only one section, try thematic breaks or paragraph breaks
         if (sections.length <= 1) {
             sections = content.split("(?m)\n\\s*\n|(?m)^---\\s*$");
         } else {
-            // Re-add the ## prefix to each section (except the first, which is the intro)
+            // Re-add the ## or ### prefix to each section (except the first, which is the intro)
             for (int i = 1; i < sections.length; i++) {
-                sections[i] = "## " + sections[i];
+                // Detect whether the original heading was ## or ### by counting chars before first space
+                String originalPrefix = extractHeadingPrefix(content, sections[i]);
+                sections[i] = originalPrefix + " " + sections[i];
             }
         }
 
         return sections;
+    }
+
+    /**
+     * Extracts the original heading prefix (e.g., "##" or "###") for a given section
+     * by looking at the content before this section's text.
+     */
+    private String extractHeadingPrefix(String fullContent, String sectionText) {
+        int idx = fullContent.indexOf(sectionText.trim());
+        if (idx <= 0) return "##";
+        // Walk backwards to find the heading marker
+        StringBuilder prefix = new StringBuilder();
+        for (int i = idx - 1; i >= 0; i--) {
+            char c = fullContent.charAt(i);
+            if (c == '#') {
+                prefix.insert(0, c);
+            } else if (c == ' ') {
+                continue;
+            } else {
+                break;
+            }
+        }
+        String result = prefix.toString();
+        return result.length() >= 2 && result.length() <= 3 ? result : "##";
     }
 }
