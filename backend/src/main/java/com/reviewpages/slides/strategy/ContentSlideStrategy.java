@@ -73,8 +73,11 @@ public class ContentSlideStrategy implements SlideStrategy {
                 imageUrl = extractedImageUrl;
             }
 
-            // Try extracting key points from the text stripped of images
-            List<String> bullets = extractKeyPoints(text);
+            // Remove caption (italic line right after the image) before extracting bullets
+            String textNoCaption = text.replaceFirst("^\\*[^*]*\\*\\s*", "").trim();
+
+            // Try extracting key points from the text stripped of images and caption
+            List<String> bullets = extractKeyPoints(textNoCaption);
             // If the image is the main content (≤1 bullet), show image-only
             if (bullets.size() <= 1) {
                 return List.of(SlideDTO.builder()
