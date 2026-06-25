@@ -78,8 +78,10 @@ public class ContentSlideStrategy implements SlideStrategy {
 
             // Try extracting key points from the text stripped of images and caption
             List<String> bullets = extractKeyPoints(textNoCaption);
-            // If the image is the main content (≤1 bullet), show image-only
-            if (bullets.size() <= 1) {
+            // If the image is the main content (≤2 bullets), show image-only
+            // This catches sections where the image is the primary content
+            // and only 1-2 short topic sentences follow (e.g. flowcharts, infographics)
+            if (bullets.size() <= 2) {
                 return List.of(SlideDTO.builder()
                         .type("KEY_POINTS")
                         .title(slideTitle)
