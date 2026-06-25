@@ -8,12 +8,10 @@ import java.util.List;
 
 /**
  * Generates content slides from regular paragraphs.
- * Splits long sections into multiple slides with ~300 chars each.
+ * Keeps only the first ~300 chars as a concise summary slide.
  */
 @Component
 public class ContentSlideStrategy implements SlideStrategy {
-
-    private static final int MAX_CHARS_PER_SLIDE = 600;
 
     @Override
     public boolean canHandle(String section, int index) {
@@ -28,25 +26,22 @@ public class ContentSlideStrategy implements SlideStrategy {
     public List<SlideDTO> generate(String section, int order) {
         List<SlideDTO> slides = new ArrayList<>();
         String text = section.trim();
-        String slideTitle = "";
-        String imageUrl = findImageForContent(text);
 
-        // Extract heading as slide title (## or ### heading on first line)
+        // Extract heading (## or ###)
         String[] lines = text.split("\n", 2);
+        String slideTitle = "";
         if (lines.length > 0) {
             String firstLine = lines[0].trim();
-            if (firstLine.startsWith("## ")) {
-                slideTitle = firstLine.substring(3).trim();
-                // Remove ## from text to avoid duplication in content
-                text = lines.length > 1 ? lines[1].trim() : "";
-            } else if (firstLine.startsWith("### ")) {
-                slideTitle = firstLine.substring(4).trim();
+            if (firstLine.startsWith("## ") || firstLine.startsWith("### ")) {
+                slideTitle = firstLine.substring(firstLine.indexOf(' ') + 1).trim();
                 text = lines.length > 1 ? lines[1].trim() : "";
             }
         }
 
+        // Find matching image
+        String imageUrl = ImageMatcher.findImage(slideTitle + " " + text);
+
         if (text.isEmpty()) {
-            // Only a heading, no body content — return a title-like slide
             slides.add(SlideDTO.builder()
                     .type("CONTENT")
                     .title(slideTitle)
@@ -56,79 +51,26 @@ public class ContentSlideStrategy implements SlideStrategy {
             return slides;
         }
 
-        // Split into chunks if too long
-        int chunkIndex = 0;
-        while (text.length() > MAX_CHARS_PER_SLIDE) {
-            int splitAt = text.lastIndexOf(". ", MAX_CHARS_PER_SLIDE);
-            if (splitAt < 0) splitAt = MAX_CHARS_PER_SLIDE;
-            else splitAt += 1; // include the period
-
-            String chunk = text.substring(0, splitAt).trim();
-            slides.add(SlideDTO.builder()
-                    .type("CONTENT")
-                    .title(slideTitle)
-                    .content(chunk)
-                    .imageUrl(imageUrl)
-                    .order(order++)
-                    .build());
-            // Only show image on first chunk
-            imageUrl = null;
-            text = text.substring(splitAt).trim();
-            chunkIndex++;
+        // CONCISE APPROACH: Keep only first ~300 chars (key paragraph)
+        // No chunking into multiple slides
+        final int MAX_CONCISE = 300;
+        String content = text;
+        if (content.length() > MAX_CONCISE) {
+            int splitAt = content.lastIndexOf(". ", MAX_CONCISE);
+            if (splitAt < MAX_CONCISE / 2) splitAt = MAX_CONCISE; // If no good sentence break
+            else splitAt += 1; // include period
+            content = content.substring(0, Math.min(splitAt, content.length())).trim();
+            content += "\n\n*... continued in the full text*";
         }
 
-        if (!text.isEmpty()) {
-            slides.add(SlideDTO.builder()
-                    .type("CONTENT")
-                    .title(slideTitle)
-                    .content(text)
-                    .imageUrl(imageUrl)
-                    .order(order)
-                    .build());
-        }
+        slides.add(SlideDTO.builder()
+                .type("CONTENT")
+                .title(slideTitle)
+                .content(content)
+                .imageUrl(imageUrl)
+                .order(order)
+                .build());
 
         return slides;
-    }
-
-    /**
-     * Maps content keywords to relevant images from static resources.
-     * Order matters: most specific keywords first to avoid false matches.
-     */
-    private String findImageForContent(String text) {
-        String lower = text.toLowerCase();
-
-        // Most specific keywords first
-        if (lower.contains("stepford") || lower.contains("deus que sempre concorda")) {
-            return "/images/god-of-stepford.jpg";
-        }
-        if (lower.contains("bauckham")) {
-            return "/images/eyewitness-papyrus.jpg";
-        }
-        if (lower.contains("contraproducente") || lower.contains("crucificação")) {
-            return "/images/counterproductive.jpeg";
-        }
-        if (lower.contains("anne rice")) {
-            return "/images/anne-rice.jpeg";
-        }
-        if (lower.contains("c.s. lewis") || lower.contains("cs lewis") || lower.contains("trilema")) {
-            return "/images/cs-lewis.jpg";
-        }
-        if (lower.contains("testemunha ocular") || lower.contains("primeiras testemunhas")) {
-            return "/images/eyewitness-papyrus.jpg";
-        }
-        if (lower.contains("gnóstico") || lower.contains("evangelhos gnósticos")) {
-            return "/images/gnostic-gospels.jpeg";
-        }
-        if (lower.contains("gênero literário") || lower.contains("genero literario")) {
-            return "/images/lewis-literary.jpg";
-        }
-        if (lower.contains("almofada") || lower.contains("côvado") || lower.contains("covado") || lower.contains("escrevia no chão")) {
-            return "/images/real-details.jpg";
-        }
-        if (lower.contains("jesus histórico") || lower.contains("jesus hist") || lower.contains("jesus real")) {
-            return "/images/historical-jesus.jpeg";
-        }
-
-        return null;
     }
 }
