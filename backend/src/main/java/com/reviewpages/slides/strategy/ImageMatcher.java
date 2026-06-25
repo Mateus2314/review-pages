@@ -21,51 +21,55 @@ public class ImageMatcher {
         if (text == null) return null;
         String lower = text.toLowerCase();
 
-        // 1
+        // 1 — flowchart of Gospel composition dates
+        if (lower.contains("datas de composição") || lower.contains("composição dos evangelhos") || lower.contains("40 e 60 anos")) {
+            return "/images/flowchart-evangelhos.png";
+        }
+        // 2
         if (lower.contains("stepford") || lower.contains("deus que sempre concorda")) {
             return "/images/god-of-stepford.jpg";
         }
-        // 2
+        // 3
         if (lower.contains("bauckham")) {
             return "/images/eyewitness-papyrus.jpg";
         }
-        // 3
+        // 4
         if (lower.contains("contraproducente") || lower.contains("crucificação")) {
             return "/images/counterproductive.jpeg";
         }
-        // 4
+        // 5
         if (lower.contains("anne rice")) {
             return "/images/anne-rice.jpeg";
         }
-        // 5
+        // 6
         if (lower.contains("c.s. lewis") || lower.contains("cs lewis") || lower.contains("trilema")) {
             return "/images/cs-lewis.jpg";
         }
-        // 6
+        // 7
         if (lower.contains("testemunha ocular") || lower.contains("primeiras testemunhas")) {
             return "/images/eyewitness-papyrus.jpg";
         }
-        // 7
+        // 8
         if (lower.contains("gnóstico") || lower.contains("evangelhos gnósticos") || lower.contains("gnostic")) {
             return "/images/gnostic-gospels.jpeg";
         }
-        // 8
+        // 9
         if (lower.contains("gênero literário") || lower.contains("genero literario")) {
             return "/images/lewis-literary.jpg";
         }
-        // 9 — content-specific: concrete physical details
+        // 10 — content-specific: concrete physical details
         if (lower.contains("almofada") || lower.contains("côvado") || lower.contains("covado") || lower.contains("escrevia no chão")) {
             return "/images/real-details.jpg";
         }
-        // 10 — specific historical-Jesus phrases
+        // 11 — specific historical-Jesus phrases
         if (lower.contains("jesus histórico") || lower.contains("jesus hist") || lower.contains("jesus real")) {
             return "/images/historical-jesus.jpeg";
         }
-        // 11 — key-points-specific: realistic / detail
+        // 12 — key-points-specific: realistic / detail
         if (lower.contains("realista") || lower.contains("detalhe")) {
             return "/images/real-details.jpg";
         }
-        // 12 — broader historical-Jesus / Jesus mentions
+        // 13 — broader historical-Jesus / Jesus mentions
         if (lower.contains("jesus") || lower.contains("histórico") || lower.contains("historico")) {
             return "/images/historical-jesus.jpeg";
         }
