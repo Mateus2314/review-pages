@@ -49,8 +49,50 @@ public class ContentSlideStrategy implements SlideStrategy {
         // Find matching image for visual context
         String imageUrl = ImageMatcher.findImage(slideTitle + " " + text);
 
+        // Check if the section's primary content is an image — if the first non-blank
+        // line after the heading is an image ![alt](url) and the remaining text would
+        // produce ≤1 bullet, treat as an image-only slide (no text).
+        String firstContentLine = text.trim().split("\n")[0].trim();
+        boolean startsWithImage = firstContentLine.startsWith("![");
+
         // Strip image markdown tags (they are embedded for the resenha but clutter slides)
         text = text.replaceAll("!\\[[^\\]]*\\]\\([^)]*\\)", "").trim();
+
+        // If section starts with an image, extract its URL and check if the
+        // remaining text is substantial enough for bullets
+        if (startsWithImage) {
+            // Extract the actual image URL from the section
+            String extractedImageUrl = imageUrl;
+            java.util.regex.Matcher imgMatcher = java.util.regex.Pattern.compile(
+                    "!\\[[^\\]]*\\]\\(([^)]+)\\)"
+            ).matcher(firstContentLine);
+            if (imgMatcher.find()) {
+                extractedImageUrl = imgMatcher.group(1);
+            }
+            if (extractedImageUrl != null) {
+                imageUrl = extractedImageUrl;
+            }
+
+            // Try extracting key points from the text stripped of images
+            List<String> bullets = extractKeyPoints(text);
+            // If the image is the main content (≤1 bullet), show image-only
+            if (bullets.size() <= 1) {
+                return List.of(SlideDTO.builder()
+                        .type("KEY_POINTS")
+                        .title(slideTitle)
+                        .imageUrl(imageUrl)
+                        .order(order)
+                        .build());
+            }
+            // Otherwise show bullets normally
+            return List.of(SlideDTO.builder()
+                    .type("KEY_POINTS")
+                    .title(slideTitle)
+                    .bullets(bullets)
+                    .imageUrl(imageUrl)
+                    .order(order)
+                    .build());
+        }
 
         if (text.isEmpty()) {
             return List.of(SlideDTO.builder()
@@ -237,10 +279,12 @@ public class ContentSlideStrategy implements SlideStrategy {
 
     /**
      * Strips markdown formatting from text so bullet points are clean and readable.
+     * Preserves markdown links ({@code [text](url)}) so they remain clickable
+     * in the frontend rendering.
      * <ul>
      *   <li>{@code **bold**} → bold</li>
      *   <li>{@code *italic*} → italic</li>
-     *   <li>{@code [text](url)} → text</li>
+     *   <li>{@code [text](url)} → [text](url) (preserved)</li>
      *   <li>Multiple whitespace collapsed to single space</li>
      * </ul>
      */
@@ -250,8 +294,6 @@ public class ContentSlideStrategy implements SlideStrategy {
         text = text.replaceAll("\\*\\*(.*?)\\*\\*", "$1");
         // Italic *text* (not bold which was already removed)
         text = text.replaceAll("(?<!\\*)\\*(?!\\*)(.{1,200}?)(?<!\\*)\\*(?!\\*)", "$1");
-        // Links [text](url) -> keep only visible text
-        text = text.replaceAll("\\[([^\\]]*)\\]\\([^)]*\\)", "$1");
         // Any remaining image references
         text = text.replaceAll("!\\[[^\\]]*\\]\\([^)]*\\)", "");
         // Collapse whitespace

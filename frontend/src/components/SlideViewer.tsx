@@ -119,8 +119,8 @@ export default function SlideViewer({ slides, onClose }: SlideViewerProps) {
             </div>
           )}
 
-          {/* Background image for light slides (CONTENT, KEY_POINTS) */}
-          {imgUrl(slide.imageUrl) && (slide.type === 'CONTENT' || slide.type === 'KEY_POINTS') && (
+          {/* Background image for light slides (CONTENT, KEY_POINTS) — hide if image-only */}
+          {imgUrl(slide.imageUrl) && (slide.type === 'CONTENT' || (slide.type === 'KEY_POINTS' && slide.bullets && slide.bullets.length > 0)) && (
             <div className="absolute inset-0 z-0">
               <img
                 src={imgUrl(slide.imageUrl)}
@@ -203,20 +203,34 @@ export default function SlideViewer({ slides, onClose }: SlideViewerProps) {
 
           {/* Key Points slides */}
           {slide.type === 'KEY_POINTS' && (
-            <div className="relative z-10 px-16 py-14">
+            <div className="relative z-10 px-16 py-14 overflow-y-auto max-h-[calc(80vh-200px)]">
               {slide.title && (
                 <h2 className="font-serif text-2xl font-bold text-slate-900 mb-6">{slide.title}</h2>
               )}
-              <ul className="space-y-4">
-                {slide.bullets?.map((bullet, i) => (
-                  <li key={i} className="flex items-start gap-4">
-                    <span className="flex-shrink-0 w-8 h-8 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center text-sm font-bold">
-                      {i + 1}
-                    </span>
-                    <span className="text-slate-700 text-lg leading-relaxed pt-1">{bullet}</span>
-                  </li>
-                ))}
-              </ul>
+              {/* Render image prominently if present and no bullets */}
+              {imgUrl(slide.imageUrl) && (!slide.bullets || slide.bullets.length === 0) && (
+                <div className="flex items-center justify-center">
+                  <img
+                    src={imgUrl(slide.imageUrl)}
+                    alt={slide.title || ''}
+                    className="max-w-full max-h-[55vh] object-contain rounded-xl shadow-lg"
+                  />
+                </div>
+              )}
+              {slide.bullets && slide.bullets.length > 0 && (
+                <ul className="space-y-4">
+                  {slide.bullets.map((bullet, i) => (
+                    <li key={i} className="flex items-start gap-4">
+                      <span className="flex-shrink-0 w-8 h-8 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center text-sm font-bold">
+                        {i + 1}
+                      </span>
+                      <div className="text-slate-700 text-lg leading-relaxed pt-1 markdown [&>p]:m-0 [&_a]:text-indigo-600 [&_a]:underline">
+                        <ReactMarkdown remarkPlugins={[remarkGfm]}>{bullet}</ReactMarkdown>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              )}
             </div>
           )}
         </div>
