@@ -54,4 +54,5 @@ register-page.png
 # Playwright debug artifacts
 network-images.json
 page-snapshot.md
+vercel-page-snapshot.md
 screenshot-*.png
