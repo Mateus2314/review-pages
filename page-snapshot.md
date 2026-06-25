@@ -1,0 +1,115 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - generic [ref=e5]:
+      - link "Review Pages" [ref=e6] [cursor=pointer]:
+        - /url: /
+        - img [ref=e7]
+        - text: Review Pages
+      - navigation [ref=e9]:
+        - link "Leituras" [ref=e10] [cursor=pointer]:
+          - /url: /readings
+        - link "Entrar" [ref=e11] [cursor=pointer]:
+          - /url: /login
+  - main [ref=e12]:
+    - generic [ref=e13]:
+      - generic [ref=e17]:
+        - link "Voltar para o livro" [ref=e18] [cursor=pointer]:
+          - /url: /books/1
+          - img [ref=e19]
+          - text: Voltar para o livro
+        - paragraph [ref=e21]: A Fé na era do ceticismo
+        - generic [ref=e22]:
+          - generic [ref=e24]: "07"
+          - generic [ref=e25]: CAPÍTULO SETE
+        - heading "A Bíblia não deve ser interpretada literalmente" [level=1] [ref=e26]
+        - generic [ref=e27]:
+          - img [ref=e28]
+          - generic [ref=e30]: Parte de A Fé na era do ceticismo
+        - button "Ver apresentação" [ref=e31]:
+          - img [ref=e32]
+          - text: Ver apresentação
+      - generic [ref=e35]:
+        - generic [ref=e36]:
+          - 'heading "Introdução: No princípio era o Verbo" [level=2] [ref=e37]'
+          - blockquote [ref=e38]
+          - paragraph [ref=e40]: É significativo que o evangelho de João, um dos textos mais antigos e profundos do cristianismo, comece não com uma genealogia ou um relato histórico, mas com uma declaração teológica que conecta a criação do universo à pessoa de Jesus Cristo. Este versículo estabelece desde o início que a Escritura não é meramente um documento histórico ou literário — ela carrega uma autoridade que transcende o tempo e a cultura.
+          - paragraph [ref=e41]
+          - paragraph [ref=e43]: "Keller reconhece que o senso comum contemporâneo — especialmente nos centros urbanos seculares — tende a descartar a Bíblia como um documento não confiável, culturalmente obsoleto e historicamente duvidoso. O capítulo se propõe a responder a três objeções fundamentais: a objeção histórica, a objeção literária e a objeção cultural."
+          - separator [ref=e44]
+          - heading "1. Quem foi o Jesus histórico?" [level=2] [ref=e45]
+          - paragraph [ref=e46]: A primeira grande questão que Keller aborda
+          - paragraph [ref=e47]
+          - paragraph [ref=e49]: é se Jesus realmente existiu como a Bíblia o apresenta, ou se ele é apenas um mito comparável aos semideuses da mitologia grega e romana.
+          - paragraph [ref=e50]: "Keller relembra sua própria jornada intelectual na universidade no final dos anos 1960. Ele conta que, ao fazer cursos sobre a Bíblia como expressão literária, foi exposto à sabedoria acadêmica vigente: os Evangelhos seriam derivados de tradições orais de comunidades eclesiásticas espalhadas pelo Mediterrâneo, que teriam moldado as histórias sobre Jesus para abordar suas necessidades específicas. Segundo essa visão, as tradições orais foram transmitidas ao longo dos anos, acumulando material lendário, e só foram registradas por escrito muito depois dos acontecimentos reais — tornando impossível saber o que realmente aconteceu."
+          - paragraph [ref=e51]
+          - 'heading "Anne Rice: da incredulidade à fé" [level=3] [ref=e53]'
+          - paragraph [ref=e54]
+          - paragraph [ref=e57]
+          - paragraph [ref=e59]: "No posfácio do livro, Rice relata sua surpresa ao descobrir a fragilidade dos argumentos acadêmicos contra a historicidade dos Evangelhos:"
+          - blockquote [ref=e60]
+          - paragraph [ref=e62]: "Rice estudou autores como John A.T. Robinson, D.A. Carson, Jacob Neusner, Luke Timothy Johnson e Craig Blomberg. Leu o Novo Testamento repetidamente, estudou arqueologia, história e sociologia do primeiro século. Sua conclusão foi direta: os Evangelhos são testemunhos oculares convincentes de Jesus. Ela passou a defender que Mateus, Marcos, Lucas e João são relatos historicamente confiáveis."
+          - paragraph [ref=e63]: "Quando questionada sobre como acreditava que seus livros anteriores sobre vampiros poderiam coexistir com sua nova fé, Rice respondeu: \"Eles são o registro da minha jornada.\" Sua trajetória — do ateísmo militante à fé devota — é um testemunho poderoso de como o estudo honesto das evidências históricas pode levar à convicção."
+          - paragraph [ref=e64]
+          - heading "C.S. Lewis e o trilema" [level=3] [ref=e66]
+          - paragraph [ref=e67]
+          - blockquote [ref=e69]
+          - paragraph [ref=e71]
+          - paragraph [ref=e73]: "Lewis argumenta que as afirmações de Jesus sobre si mesmo (perdoar pecados, ser o Filho do Homem que viria julgar o mundo, ser um com o Pai) são tão extraordinárias que não permitem uma posição intermediária. Se Jesus não era quem ele dizia ser, então ele era deliberadamente enganador (mentiroso) ou estava iludido (louco). A única alternativa racional restante é que ele era exatamente quem afirmava ser: Senhor."
+          - paragraph [ref=e74]: "Keller observa que, embora esse argumento seja poderoso, ele depende de uma premissa crucial: que os relatos bíblicos das palavras de Jesus são historicamente precisos. Se os Evangelhos não forem confiáveis como documentos históricos, o trilema perde sua força. Por isso, Keller dedica o resto do capítulo a demonstrar a confiabilidade histórica dos relatos evangélicos."
+          - separator [ref=e75]
+          - heading "2. Pode-se confiar na Bíblia de uma perspectiva histórica?" [level=2] [ref=e76]
+          - paragraph [ref=e77]: Keller reconhece que muitos creem que a Bíblia é uma coletânea de lendas, historicamente não confiável. Menciona o Seminário Jesus (Jesus Seminar), um fórum de especialistas que afirmava que não mais que 20% das palavras e atos de Jesus presentes na Bíblia poderiam ser historicamente validados.
+          - paragraph [ref=e78]: Para responder a essa objeção, Keller se concentra nos Evangelhos canônicos (Mateus, Marcos, Lucas e João) — que a igreja primitiva reconheceu como autênticos e autorizados — e apresenta três linhas principais de evidência.
+          - separator [ref=e79]
+          - heading "3. Datas de composição dos Evangelhos" [level=2] [ref=e80]
+          - paragraph [ref=e81]: A primeira linha de evidência é cronológica.
+          - paragraph [ref=e82]
+          - paragraph [ref=e84]: Os Evangelhos canônicos foram escritos entre 40 e 60 anos após a morte de Jesus. As cartas de Paulo, escritas entre 15 e 25 anos após a morte de Jesus, já fornecem um esboço de todos os acontecimentos da vida de Cristo — seus milagres, suas afirmações, crucificação e ressurreição.
+          - paragraph [ref=e85]: Isso significa que os relatos bíblicos circularam enquanto centenas de testemunhas oculares ainda estavam vivas para confirmá-los ou contestá-los. O evangelista Lucas afirma explicitamente que seu relato baseia-se no que ouviu de testemunhas oculares que ainda estavam vivas (Lucas 1.1-4).
+          - heading "O argumento das testemunhas oculares" [level=3] [ref=e86]
+          - paragraph [ref=e87]
+          - paragraph [ref=e89]: "Marcos, por exemplo, identifica o homem que ajudou Jesus a carregar a cruz como \"pai de Alexandre e de Rufo\" (Marcos 15.21). Não há motivo para incluir esses nomes a menos que os leitores os conhecessem — é como dizer: \"Perguntem a eles, se quiserem confirmar.\""
+          - paragraph [ref=e90]: Paulo também esperava que seus leitores consultassem testemunhas oculares. Em 1 Coríntios 15.1-6, menciona um grupo de quinhentas testemunhas que viram o Cristo ressurreto ao mesmo tempo. Ninguém escreveria isso em um documento destinado à leitura pública a menos que realmente houvesse testemunhas vivas capazes de confirmar.
+          - paragraph [ref=e91]
+          - paragraph [ref=e93]: Os evangelhos gnósticos (como o de Tomé) são muito posteriores.
+          - paragraph [ref=e94]
+          - paragraph [ref=e96]
+          - separator [ref=e98]
+          - heading "4. O conteúdo é tão contraproducente que os Evangelhos não poderiam ser lendas" [level=2] [ref=e99]
+          - paragraph [ref=e100]: A segunda linha de evidência examina o conteúdo dos Evangelhos.
+          - paragraph [ref=e101]
+          - paragraph [ref=e103]: A teoria de que os Evangelhos foram escritos pelos líderes da igreja primitiva para promover seu poder e fortalecer seu movimento não se sustenta quando examinamos o que eles realmente contêm.
+          - paragraph [ref=e104]: "Se essa visão estivesse correta, veríamos Jesus tomando partido nos debates que agitavam a igreja primitiva. Keller aponta um exemplo notável: uma das grandes controvérsias na igreja primitiva opunha os que achavam que os cristãos gentios deviam ser circuncidados e os que não. Em nenhum lugar dos Evangelhos encontramos Jesus dizendo algo sobre circuncisão. Se os autores estivessem moldando os relatos para apoiar seu partido, teriam colocado palavras de Jesus sobre o assunto."
+          - paragraph [ref=e105]: "Outros exemplos:"
+          - list [ref=e106]
+          - separator [ref=e115]
+          - heading "5. O gênero literário dos Evangelhos é tão detalhado que eles não poderiam ser lendas" [level=2] [ref=e116]
+          - paragraph [ref=e117]: A terceira linha de evidência vem da crítica literária. C.S. Lewis, antes de ser teólogo, foi um dos maiores críticos literários do século XX.
+          - paragraph [ref=e118]
+          - blockquote [ref=e120]
+          - paragraph [ref=e122]
+          - paragraph [ref=e124]: O argumento de Lewis é que a ficção antiga em nada se parece com a ficção moderna. A ficção moderna é realista — contém detalhes e diálogos que passam a sensação de um relato feito por testemunha ocular. Esse gênero se desenvolveu há menos de trezentos anos. Na época antiga, romances, épicos ou lendas eram intangíveis e remotos — havia escassez de detalhes.
+          - paragraph [ref=e125]: "Nos Evangelhos, porém, encontramos exatamente esse tipo de detalhe:"
+          - list [ref=e126]
+          - separator [ref=e133]
+          - heading "6. Não se pode confiar na Bíblia de uma perspectiva cultural?" [level=2] [ref=e134]
+          - paragraph [ref=e135]: "Keller então aborda a objeção cultural, que ele identifica como a mais comum entre os nova-iorquinos contemporâneos: a Bíblia é culturalmente retrógrada, especialmente em questões como escravidão e o papel das mulheres."
+          - heading "O contexto histórico de Efésios 6.5" [level=3] [ref=e136]
+          - paragraph [ref=e137]: "Keller oferece uma abordagem em três camadas para lidar com textos ofensivos:"
+          - list [ref=e138]
+          - separator [ref=e148]
+          - heading "7. Uma Bíblia confiável ou um Deus de Stepford?" [level=2] [ref=e149]
+          - paragraph [ref=e150]: Keller encerra o capítulo com um argumento poderoso.
+          - paragraph [ref=e151]
+          - paragraph [ref=e153]: Se você elimina da Bíblia tudo o que ofende sua sensibilidade ou contraria sua vontade, você não está se relacionando com Deus — está criando um deus à sua imagem.
+          - paragraph [ref=e154]
+          - paragraph [ref=e156]: Keller argumenta que uma Bíblia inquestionável não é inimiga de um relacionamento pessoal com Deus, mas um pré-requisito para ele. Somente se o seu Deus puder dizer coisas que o façam se sentir ultrajado — coisas com as quais você precise lutar — você saberá que tem um Deus real e não algo que sua imaginação criou.
+          - blockquote [ref=e157]
+          - paragraph [ref=e159]: Assim como em um casamento ou amizade verdadeiros, a Bíblia nos confronta, nos desafia, nos corrige. Um Deus que sempre concorda conosco não é Deus — é um espelho.
+          - separator [ref=e160]
+          - heading "Referências" [level=3] [ref=e161]
+          - list [ref=e162]
+        - link "Voltar para todos os capítulos" [ref=e180] [cursor=pointer]:
+          - /url: /books/1
+          - img [ref=e181]
+          - text: Voltar para todos os capítulos

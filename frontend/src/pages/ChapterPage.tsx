@@ -107,7 +107,7 @@ export default function ChapterPage() {
           <div className="markdown">
             <ReactMarkdown
               remarkPlugins={[remarkGfm]}
-              transformImageUri={transformImageUri}
+              urlTransform={transformImageUri}
             >{chapter.content}</ReactMarkdown>
           </div>
         ) : (
