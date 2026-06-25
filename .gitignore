@@ -56,3 +56,9 @@ network-images.json
 page-snapshot.md
 vercel-page-snapshot.md
 screenshot-*.png
+# Screenshots
+*.png
+# Environment
+.env*
+!env.example
+
