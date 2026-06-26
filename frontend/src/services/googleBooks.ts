@@ -79,7 +79,7 @@ const SEARCH_QUERIES = [
 const KNOWN_COVERS: Record<string, string> = {
   'The Reason for God': 'https://covers.openlibrary.org/b/id/6959410-L.jpg',
   'A Fé na era do ceticismo': 'https://covers.openlibrary.org/b/id/6959410-L.jpg',
-  'O Custo do Discipulado': 'https://covers.openlibrary.org/b/id/6959410-L.jpg',
+  'O Custo do Discipulado': 'https://cdn.weasy.io/users/editorafiel/catalog/custodiscip-fr.jpg',
 };
 
 export async function searchBook(query?: string): Promise<BookInfo | null> {
