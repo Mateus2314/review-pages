@@ -23,11 +23,13 @@ export default function BookPage() {
     Promise.all([
       getReading(Number(id)),
       listChapters(Number(id)),
-      searchBook('A Fé na era do ceticismo Timothy Keller')
+      searchBook('A Fé na era do ceticismo Timothy Keller').catch(() => null)
     ]).then(([b, ch, gb]) => {
       setBook(b);
       setChapters(ch);
       if (gb?.coverUrl) setCoverUrl(gb.coverUrl);
+      setLoading(false);
+    }).catch(() => {
       setLoading(false);
     });
   }, [id]);
