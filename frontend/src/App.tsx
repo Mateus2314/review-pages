@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import MainLayout from './layouts/MainLayout';
+import KeepAlive from './components/KeepAlive';
 import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
@@ -14,6 +15,7 @@ import ChapterPage from './pages/ChapterPage';
 function App() {
   return (
     <BrowserRouter>
+      <KeepAlive />
       <MainLayout>
         <Routes>
           <Route path="/" element={<HomePage />} />
