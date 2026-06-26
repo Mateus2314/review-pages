@@ -1,15 +1,14 @@
 import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { ArrowLeft, BookOpen, Presentation } from 'lucide-react';
+import { ArrowLeft, BookOpen, FileText, Download } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import type { Components } from 'react-markdown';
 import { transformImageUri } from '../utils/images';
 import { getChapter } from '../services/chapters';
 import { getReading } from '../services/readings';
-import { generateSlides } from '../services/slides';
-import SlideViewer from '../components/SlideViewer';
-import type { Chapter, Slide } from '../types';
+import PDFViewer from '../components/PDFViewer';
+import type { Chapter } from '../types';
 
 /** Extracts a YouTube video ID from various URL formats */
 function getYouTubeId(url: string): string | null {
@@ -51,9 +50,7 @@ export default function ChapterPage() {
   const [chapter, setChapter] = useState<Chapter | null>(null);
   const [bookTitle, setBookTitle] = useState('');
   const [loading, setLoading] = useState(true);
-  const [slides, setSlides] = useState<Slide[]>([]);
-  const [showSlides, setShowSlides] = useState(false);
-  const [slidesLoading, setSlidesLoading] = useState(false);
+  const [showPDF, setShowPDF] = useState(false);
 
   useEffect(() => {
     if (!chapterId || !readingId) return;
@@ -84,6 +81,11 @@ export default function ChapterPage() {
       );
     }
   };
+
+  const API_BASE = import.meta.env.VITE_API_URL?.replace(/\/api\/v1\/?$/, '') || '';
+  const downloadUrl = chapter?.pdfUrl
+    ? (chapter.pdfUrl.startsWith('http') ? chapter.pdfUrl : `${API_BASE}${chapter.pdfUrl}`)
+    : null;
 
   if (loading) return (
     <div className="min-h-screen flex items-center justify-center bg-[#0F0728]">
@@ -131,25 +133,27 @@ export default function ChapterPage() {
             <span>Parte de {bookTitle}</span>
           </div>
 
-          <button
-            onClick={async () => {
-              if (!chapterId) return;
-              setSlidesLoading(true);
-              setShowSlides(true);
-              try {
-                const data = await generateSlides(Number(chapterId));
-                setSlides(data);
-              } catch {
-                setSlides([]);
-              }
-              setSlidesLoading(false);
-            }}
-            disabled={!chapter?.content}
-            className="mt-6 inline-flex items-center gap-2 px-5 py-2.5 bg-indigo-600 hover:bg-indigo-500 disabled:bg-slate-700 disabled:cursor-not-allowed text-white rounded-lg text-sm font-medium transition-all"
-          >
-            <Presentation className="w-4 h-4" />
-            {slidesLoading ? 'Gerando...' : 'Ver apresentação'}
-          </button>
+          {/* PDF actions */}
+          {chapter.pdfUrl && (
+            <div className="mt-8 flex flex-wrap items-center gap-3">
+              <button
+                onClick={() => setShowPDF(true)}
+                className="inline-flex items-center gap-2 px-5 py-2.5 bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg text-sm font-medium transition-all shadow-lg shadow-indigo-600/25"
+              >
+                <FileText className="w-4 h-4" />
+                Visualizar apresentação
+              </button>
+
+              <a
+                href={downloadUrl!}
+                download
+                className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/10 hover:bg-white/15 text-white rounded-lg text-sm font-medium transition-all border border-white/10"
+              >
+                <Download className="w-4 h-4" />
+                Download PDF
+              </a>
+            </div>
+          )}
         </div>
       </section>
 
@@ -181,13 +185,13 @@ export default function ChapterPage() {
         </div>
       </section>
 
-      {showSlides && slides.length > 0 && (
-        <SlideViewer slides={slides} onClose={() => { setShowSlides(false); setSlides([]); }} />
-      )}
-      {showSlides && slidesLoading && (
-        <div className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center">
-          <div className="animate-pulse text-purple-400 text-lg">Gerando slides...</div>
-        </div>
+      {/* PDF Viewer Modal */}
+      {showPDF && chapter.pdfUrl && (
+        <PDFViewer
+          pdfUrl={chapter.pdfUrl}
+          title={`${chapter.title} — ${bookTitle}`}
+          onClose={() => setShowPDF(false)}
+        />
       )}
     </div>
   );

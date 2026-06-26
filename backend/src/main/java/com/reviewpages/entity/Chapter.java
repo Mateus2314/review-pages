@@ -25,6 +25,9 @@ public class Chapter {
     @Column(name = "chapter_order", nullable = false)
     private Integer chapterOrder;
 
+    @Column(name = "pdf_file", length = 255)
+    private String pdfFile;
+
     @Column(nullable = false, updatable = false)
     private LocalDateTime createdAt;
 

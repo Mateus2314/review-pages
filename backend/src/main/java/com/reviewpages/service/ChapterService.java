@@ -24,12 +24,17 @@ public class ChapterService {
     }
 
     private ChapterResponse toResponse(Chapter c) {
+        String pdfUrl = null;
+        if (c.getPdfFile() != null && !c.getPdfFile().isBlank()) {
+            pdfUrl = "/pdfs/" + c.getPdfFile();
+        }
         return ChapterResponse.builder()
                 .id(c.getId())
                 .readingId(c.getReading().getId())
                 .title(c.getTitle())
                 .content(c.getContent())
                 .chapterOrder(c.getChapterOrder())
+                .pdfUrl(pdfUrl)
                 .createdAt(c.getCreatedAt())
                 .build();
     }

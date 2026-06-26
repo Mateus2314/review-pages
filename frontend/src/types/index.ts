@@ -51,15 +51,6 @@ export interface Stats {
   totalLikes: number;
 }
 
-export interface Chapter {
-  id: number;
-  readingId: number;
-  title: string;
-  content: string;
-  chapterOrder: number;
-  createdAt: string;
-}
-
 export interface ReadingForm {
   title: string;
   type: 'BOOK' | 'ARTICLE';
@@ -75,13 +66,12 @@ export interface ReadingForm {
   currentPage: number | null;
 }
 
-export interface Slide {
-  type: 'TITLE' | 'CONTENT' | 'QUOTE' | 'KEY_POINTS' | 'CLOSING';
-  title?: string;
-  content?: string;
-  bullets?: string[];
-  quote?: string;
-  attribution?: string;
-  imageUrl?: string;
-  order: number;
+export interface Chapter {
+  id: number;
+  readingId: number;
+  title: string;
+  content: string;
+  chapterOrder: number;
+  pdfUrl?: string;
+  createdAt: string;
 }

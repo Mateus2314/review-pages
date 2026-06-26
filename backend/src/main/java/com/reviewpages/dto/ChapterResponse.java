@@ -10,5 +10,6 @@ public class ChapterResponse {
     private String title;
     private String content;
     private Integer chapterOrder;
+    private String pdfUrl;
     private LocalDateTime createdAt;
 }
