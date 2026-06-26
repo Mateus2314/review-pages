@@ -1,4 +1,4 @@
-import api from './api';
+import api, { cachedGet } from './api';
 import type { Reading, ReadingForm, Stats } from '../types';
 
 interface PageResponse<T> {
@@ -16,13 +16,19 @@ export async function listReadings(params?: {
   page?: number;
   size?: number;
 }) {
-  const { data } = await api.get<PageResponse<Reading>>('/readings', { params });
-  return data;
+  const query = new URLSearchParams();
+  if (params?.type) query.set('type', params.type);
+  if (params?.status) query.set('status', params.status);
+  if (params?.tag) query.set('tag', params.tag);
+  if (params?.page !== undefined) query.set('page', String(params.page));
+  if (params?.size !== undefined) query.set('size', String(params.size));
+  const qs = query.toString();
+  const url = '/readings' + (qs ? '?' + qs : '');
+  return cachedGet<PageResponse<Reading>>(url);
 }
 
 export async function getReading(id: number) {
-  const { data } = await api.get<Reading>(`/readings/${id}`);
-  return data;
+  return cachedGet<Reading>(`/readings/${id}`);
 }
 
 export async function createReading(form: ReadingForm) {
@@ -49,8 +55,7 @@ export async function deleteComment(id: number) {
 }
 
 export async function getComments(readingId: number) {
-  const { data } = await api.get(`/readings/${readingId}/comments`);
-  return data;
+  return cachedGet<any[]>(`/readings/${readingId}/comments`);
 }
 
 export async function toggleLike(readingId: number) {
@@ -59,8 +64,7 @@ export async function toggleLike(readingId: number) {
 }
 
 export async function getStats() {
-  const { data } = await api.get<Stats>('/stats');
-  return data;
+  return cachedGet<Stats>('/stats');
 }
 
 export async function submitFeedback(message: string, type: string) {
