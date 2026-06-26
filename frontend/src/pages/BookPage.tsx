@@ -20,18 +20,23 @@ export default function BookPage() {
   useEffect(() => {
     if (!id) return;
     setLoading(true);
-    Promise.all([
-      getReading(Number(id)),
-      listChapters(Number(id)),
-      searchBook('A Fé na era do ceticismo Timothy Keller').catch(() => null)
-    ]).then(([b, ch, gb]) => {
-      setBook(b);
-      setChapters(ch);
-      if (gb?.coverUrl) setCoverUrl(gb.coverUrl);
-      setLoading(false);
-    }).catch(() => {
-      setLoading(false);
-    });
+
+    getReading(Number(id))
+      .then((b) => {
+        setBook(b);
+        return Promise.all([
+          listChapters(Number(id)),
+          searchBook(`${b.title} ${b.author || ''}`).catch(() => null),
+        ]);
+      })
+      .then(([ch, gb]) => {
+        setChapters(ch);
+        if (gb?.coverUrl) setCoverUrl(gb.coverUrl);
+        setLoading(false);
+      })
+      .catch(() => {
+        setLoading(false);
+      });
   }, [id]);
 
   if (loading) return (
@@ -60,7 +65,7 @@ export default function BookPage() {
 
           <div className="flex-1 min-w-0">
             <span className="text-xs font-semibold text-purple-400 tracking-[0.2em] uppercase">
-              APOLOGÉTICA · FILOSOFIA
+              {book.tags ? book.tags.split(',')[0].trim() : 'LIVRO'}
             </span>
             <h1 className="font-serif text-4xl lg:text-5xl text-white font-bold leading-tight mt-3">
               {book.title}
