@@ -1,6 +1,6 @@
 <div align="center">
   <br/>
-  <h1>📚 Review Pages</h1>
+  <h1>Review Pages</h1>
   <p align="center">
     <strong>Plataforma inteligente de análise e registro de leituras</strong>
   </p>
@@ -27,7 +27,7 @@
 
 ---
 
-## ✨ Funcionalidades
+## Funcionalidades
 
 | | Funcionalidade | Descrição |
 |---|---|---|
@@ -42,26 +42,26 @@
 
 ---
 
-## 🛠️ Stack
+## Stack
 
 ```
-┌─────────────────────────────────────────────────────────────────┐
-│                      Review Pages                               │
-├──────────────┬──────────────────┬───────────────────────────────┤
-│   Frontend   │     Backend      │          Database             │
-│              │                  │                               │
-│  React 19    │  Java 17         │  PostgreSQL 16                │
-│  TypeScript  │  Spring Boot 3.2 │  Flyway Migrations            │
-│  Tailwind 4  │  JWT Auth        │  Docker Compose               │
-│  Vite 5      │  REST API v1     │                               │
-│  lucide-react│  Maven 3.9       │                               │
-│  react-md    │                  │                               │
-└──────────────┴──────────────────┴───────────────────────────────┘
+┌──────────────────────────────────────────────────────────────────┐
+│                        Review Pages                              │
+├─────────────┬────────────────────┬──────────────────────────────┤
+│  Frontend   │      Backend       │          Database            │
+│             │                    │                              │
+│  React 19   │  Java 17           │  PostgreSQL 16               │
+│  TypeScript │  Spring Boot 3.2   │  Flyway Migrations           │
+│  Tailwind 4 │  Spring Security   │  Docker Compose              │
+│  Vite 5     │  JWT Auth          │                              │
+│  lucide-    │  REST API v1       │                              │
+│   react     │  Maven 3.9         │                              │
+└─────────────┴────────────────────┴──────────────────────────────┘
 ```
 
-## 🚀 Quick Start
+## Quick Start
 
-### Pré-requisitos
+### Pre-requisitos
 
 | Ferramenta | Versão |
 |---|---|
@@ -97,13 +97,13 @@ npm run dev
 
 ---
 
-## 📁 Estrutura do Projeto
+## Estrutura do Projeto
 
 ```
 reviewpages/
 │
 ├── backend/                    # API REST (Spring Boot)
-│   ├── src/main/java/          # Código Java
+│   ├── src/main/java/com/reviewpages/
 │   │   ├── config/             # JWT, Security, Cors
 │   │   ├── controller/         # Endpoints REST
 │   │   ├── dto/                # Objetos de transferência
@@ -112,28 +112,36 @@ reviewpages/
 │   │   ├── repository/         # Acesso a dados
 │   │   └── service/            # Lógica de negócio
 │   └── src/main/resources/
-│       └── db/migration/       # Migrations Flyway
+│       ├── application.yml     # Configurações da aplicação
+│       ├── db/migration/       # Migrations Flyway
+│       └── static/             # Imagens e PDFs estáticos
 │
-├── frontend/                   # App React
+├── frontend/                   # App React + Vite
 │   ├── src/
+│   │   ├── components/         # Componentes reutilizáveis
 │   │   ├── layouts/            # Layout principal
 │   │   ├── pages/              # Páginas da aplicação
 │   │   ├── services/           # API, Auth, Google Books
-│   │   └── types/              # Tipos TypeScript
-│   └── public/images/          # Assets estáticos
+│   │   ├── types/              # Tipos TypeScript
+│   │   └── utils/              # Utilitários
+│   ├── public/                 # Assets públicos
+│   └── vite.config.ts          # Configuração Vite
 │
 ├── designs/                    # Layouts no Pencil (.pen)
-├── .opencode/                  # Agentes e skills OpenCode
+├── .opencode/                  # Configuração OpenCode
 │   ├── agents/                 # Agentes customizados
 │   └── skills/                 # Skills (run-reviewpages)
 │
+├── backend/Dockerfile          # Docker image do backend
 ├── docker-compose.yml          # PostgreSQL container
+├── render.yaml                 # Configuração Render
+├── vercel.json                 # Configuração Vercel
 └── opencode.json               # Config OpenCode
 ```
 
 ---
 
-## 📡 API REST
+## API REST
 
 | Método | Rota | Descrição |
 |--------|------|----------|
@@ -153,7 +161,7 @@ reviewpages/
 
 ---
 
-## 🤖 OpenCode + Agentes de IA
+## OpenCode + Agentes de IA
 
 Este projeto usa o [OpenCode](https://opencode.ai) como assistente de desenvolvimento. Agentes especializados ajudam em cada etapa:
 
@@ -187,20 +195,20 @@ Para conectar o Supabase via MCP:
 
 ### Vercel MCP
 
-Para deploy via Vercel MCP (já configurado):
+Para deploy via Vercel MCP (ja configurado):
 ```bash
 opencode mcp auth vercel
 ```
 
 ---
 
-## 🌐 Deploy
+## Deploy
 
 | Serviço | Componente | Status |
 |---------|-----------|--------|
-| [Vercel](https://vercel.com) | Frontend (React) | ✅ MCP configurado |
-| [Supabase](https://supabase.com) | Banco PostgreSQL | ✅ Plugin instalado |
-| [Render](https://render.com) | Backend (Spring Boot) | Pendente |
+| [Vercel](https://vercel.com) | Frontend (React) | Configurado |
+| [Render](https://render.com) | Backend (Spring Boot) | Configurado |
+| [Neon](https://neon.tech) | Banco PostgreSQL | Configurado |
 
 ### Deploy do Frontend na Vercel
 
@@ -209,20 +217,19 @@ cd frontend
 npx vercel --prod
 ```
 
-Configure a variável de ambiente `VITE_API_URL` apontando para o backend em produção.
+Configure a variavel de ambiente `VITE_API_URL` apontando para o backend em produção.
 
 ---
 
-## 📄 Licença
+## Licenca
 
-Distribuído sob a licença MIT. Veja `LICENSE` para mais informações.
+Distribuido sob a licenca MIT.
 
 ---
 
 <div align="center">
-  <p>Feito com ❤️ usando <a href="https://opencode.ai">OpenCode</a></p>
+  <p>Feito com <a href="https://opencode.ai">OpenCode</a></p>
   <p>
-    <a href="https://github.com/Mateus2314/review-pages">GitHub</a> ·
-    <a href="https://opencode.ai">OpenCode</a>
+    <a href="https://github.com/Mateus2314/review-pages">GitHub</a>
   </p>
 </div>
